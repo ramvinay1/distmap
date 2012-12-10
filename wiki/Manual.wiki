@@ -23,7 +23,7 @@ It requires only Perl 5.8 or higher. In current release it supports 5 short read
 ==2.4 soapAligner ==
 
 {{{
-Usage: perl $script
+Usage: perl DistMap_v1.0/distmap
 
 --reference-fasta      		Reference fasta file full path. MANDATORY parameter.
   
