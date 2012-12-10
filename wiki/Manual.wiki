@@ -1,13 +1,11 @@
-#summary One-sentence summary of this page.
-
-= Introduction =
-
-Add your content here.
+#summary How to use DistMap is explained here
 
 
-= Details =
+<wiki:toc max_depth="3" />
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+
+=1. Introduction=
+Allim, Allelic imbalance meter, offers an integrated and user-friendly solution for measuring allele specific gene expression (ASE) within species. Allim estimates allelic imbalance in F1 hybrids. Since mapping bias is the largest problem for reliable estimates of allele specific gene expression using RNA-seq, Allim combines two different measures to account for mapping biases. First, Allim generates a polymorphism aware reference genome that accounts for the sequence variation between the alleles of both parents (or parental lines). Second, Allim includes a sequence specific simulation tool to estimate the remaining mapping bias. This estimated mapping bias is then incorporated in the statistical tests for allelic imbalance.
+
+The pipeline requires whole transcript high throughput RNA sequencing (RNA-seq) reads of F1 hybrids. Additionally, either RNA-seq reads for both parents, genomic sequencing reads for both parents or two private genomes for both parents have to be provided in separate files. Allim was tested on Illumina paired-end RNA-seq reads but it can also handle FASTQ files from other NGS sequencing platforms. The provided parental RNA-seq libraries can be from homozygous as well as heterozygous parents (however, all heterozygous loci will be excluded during the analysis).
+Allim has five modules that can be run by a single command. All input parameters can be specified in the AllimOptions file. These parameters are then used to run the complete pipeline. Allim provides two different input options:
