@@ -5,12 +5,13 @@
 
 
 =1. Introduction=
-DistMap? provides a framework to map short reads with BWA, GSNAP, TopHat?, Bowtie and soapAligner. 
+DistMap provides a scalable and portable framework to map short reads on a hadoop cluster. Currently it supports 5 mappers (BWA, GSNAP, TopHat?, Bowtie and soapAligner) to map reads in Fastq file format. It takes pair-end and single-end reads into FASTQ format and give output in SAM or BAM format.
 
 
 =2. System Requirements=
 DistMap is implemented in Perl and runs on all Unix operating systems.
-It requires only Perl 5.8 or higher. In current release it supports 5 short read mappers.
+It requires only Perl 5.8 or higher, MergeSamFiles.jar and SortSam.jar from PICARD.
+
 ==2.1 bwa ==
 
 ==2.2 GSNAP ==
