@@ -79,10 +79,10 @@ Usage: perl DistMap_v1.0/distmap
                                    or 10 if --fails-as-input is selected, or 3 for single-end reads)
 				   					
 --picard-mergesamfiles-jar     PICARD MergeSamFiles.jar full path. It will be used to merge all
-				SAM or BAM files.
+				SAM or BAM files. MANDATORY parameter.
 				Example: --picard-mergesamfiles-jar /usr/local/hadoop/picard-tools-1.56/MergeSamFiles.jar
 				
---picard-sortsam-jar     	PICARD SortSam.jar full path. It will be used to for SAM BAM conversion.
+--picard-sortsam-jar     	PICARD SortSam.jar full path. It will be used to for SAM BAM conversion. MANDATORY parameter.
 				Example: --picard-sortsam-jar /usr/local/hadoop/picard-tools-1.56/SortSam.jar
 				
 --mapper-args        		Arguments for mapping:
@@ -104,7 +104,9 @@ Usage: perl DistMap_v1.0/distmap
 					Example: --mapper-args "-m 400 -x 600"
 					Note: Define SOAPaligner parameters correctly accoring to the version is used here.
 					For detail about parameters visit [http://soap.genomics.org.cn/soapaligner.html]
-    
+Please note that processor parameters not required in arguments. Example in case of BWA mapping dont give -t parameter.
+This parameter is given by DistMap internally.
+
 --bwa-sampe-args      	Arguments for BWA sampe or samse module.
 			bwa sampe for paired-end reads
 			bwa samse for single-end reads
@@ -136,5 +138,6 @@ Hadoop streaming Parameters:
 --verbose                 	To print inputs on screen.  
 --test                 	To run a test for all dependency and all.
 --help                	To run a test for all dependency and all.
+
 
 }}}
