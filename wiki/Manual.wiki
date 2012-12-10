@@ -21,26 +21,118 @@ It requires only Perl 5.8 or higher. In current release it supports 5 short read
 ==2.4 Bowtie ==
 
 ==2.4 soapAligner ==
-http://soap.genomics.org.cn/down/soap2sam.tar.gz
 
-soap.genomics.org.cn/down/SOAPaligner-v2.20-src.tar.gz
-
-soap.genomics.org.cn/down/SOAPaligner-v2.20-src_builder.tar.gz
-
-
-  * Linux or Macintosh OSX system or any other Unix 64 bit system with at least 4 GB of RAM and 2 CPU (processors)
-  * Python 2.7.3 [http://www.python.org/download/]
-
-=3. How to get DistMap=
-The user can download the latest version of Allim from http://code.google.com/p/allim/. The file to download is called Allim_1.0.tar.gz. Move the file to an appropriate directory and run the following command to uncompress the file:
 {{{
-tar –zxvf Allim_1.0.tar.gz
+
+--reference-fasta      		Reference fasta file full path. MANDATORY parameter.
+  
+--input                		provide input fasta files. Either as a pair or single Fastq file.
+				For Paired-end data --input 'read1.fastq,read2.fastq'
+				For Single-end data --input 'read.fastq'
+				Multiple inputs are possible to repeat --input parameter
+					
+				--input 'sample1_1.fastq,sample1_2.fastq' --input 'sample2_1.fastq,sample2_2.fastq'
+				This is important to give single or a pair input file within
+				single or double quote and if paired file, it must be comma
+				seperated. MANDATORY parameter.
+					
+--output              		Full path of output folder where final output will be kept. MANDATORY parameter.
+
+--only-process    		Step1: This option will 1) convert FASTQ files into 1 line format, 2) create genome index
+			        and 3) create archieve to send for job and exit. OPTIONAL parameter
+				
+--only-hdfs-upload          	Step2: This option assume that data processing is done and only upload reads and archieve created in
+				data process step will be loaded into HDFS file system and exit. OPTIONAL parameter
+
+--only-map            		Step3: This option will assume that data is already loaded into HDFS and will only
+				run map on cluster
+
+--only-hdfs-download          	Step4: This option assume that mapping already done on cluster and files will be downloaded
+				from cluster to local output directory. OPTIONAL parameter
+				
+--only-merge          		Step5: This option assume that data already in local directory from HDFS
+				and now will be merged and create a single SAM or BAM output file. OPTIONAL parameter
+
+--only-delete-temp          	Step6: This is the last step of piepline. This option will delete the
+				mapping data from HDFS file system as well as from local temp directory.
+				OPTIONAL parameter
+				
+--hadoop-home         		Give the full path of hadoop folder. MANDATORY parameter.
+				hadoop home path should be identical in master, secondary namenode and
+				all slaves.
+				Example: --hadoop-home /usr/local/hadoop
+					
+--mapper              		Mapper name [bwa,tophat,gsnap,bowtie,soap]. MANDATORY parameter.
+				Example: --mapper bwa
+					
+--mapper-path         		Mapper executable full path. Mapper executables should be in
+				same loaction on all nodes (slaves). MANDATORY parameter.
+				Example: --mapper-path /usr/local/hadoop/bwa
+--gsnap-output-split		GSNAP has a feature to split different type of maaping output in different
+                                SAM files.
+				
+				For detail do gsnap --help and you can see --split--output.
+				  --split-output=STRING   Basename for multiple-file output, separately for nomapping,
+                                   halfmapping_uniq, halfmapping_mult, unpaired_uniq, unpaired_mult,
+                                   paired_uniq, paired_mult, concordant_uniq, and concordant_mult results (up to 9 files,
+                                   or 10 if --fails-as-input is selected, or 3 for single-end reads)
+				   					
+--picard-mergesamfiles-jar     PICARD MergeSamFiles.jar full path. It will be used to merge all
+				SAM or BAM files.
+				Example: --picard-mergesamfiles-jar /usr/local/hadoop/picard-tools-1.56/MergeSamFiles.jar
+				
+--picard-sortsam-jar     	PICARD SortSam.jar full path. It will be used to for SAM BAM conversion.
+				Example: --picard-sortsam-jar /usr/local/hadoop/picard-tools-1.56/SortSam.jar
+				
+--mapper-args        		Arguments for mapping:
+				BWA mapping for aln command:
+					Example --mapper-args "-o 1 -n 0.01 -l 200 -e 12 -d 12"
+					Note: Define BWA parameters correctly accoring to the version is used here.
+				TopHat:
+					Example: --mapper-args "--mate-inner-dist 200 --max-multihits 40 --phred64-quals"
+					Note: Define TopHat parameters correctly accoring to the version is used here.
+				GSNAP mapping:
+					Example: --mapper-args "--pairexpect 200 --quality-protocol illumina"
+					Note: Define gsnap parameters correctly accoring to the version is used here.
+					For detail about parameters visit [http://research-pub.gene.com/gmap/]
+				bowtie mapping:
+					Example: --mapper-args "--sam"
+					Note: Define gsnap parameters correctly accoring to the version is used here.
+					For detail about parameters visit [http://bowtie-bio.sourceforge.net/index.shtml]
+				SOAPAlinger:
+					Example: --mapper-args "-m 400 -x 600"
+					Note: Define SOAPaligner parameters correctly accoring to the version is used here.
+					For detail about parameters visit [http://soap.genomics.org.cn/soapaligner.html]
+    
+--bwa-sampe-args      	Arguments for BWA sampe or samse module.
+			bwa sampe for paired-end reads
+			bwa samse for single-end reads
+			Example --bwa-sampe-args "-a 500 -s"
+					
+--output-format    		Output file format either SAM or BAM.
+				Default: BAM
+					
+--job-desc    		Give a job description which will be dispalyed in JobTracker webpage.
+				Default: <mapper name> mapping.
+Hadoop streaming Parameters:
+
+--hadoop-scheduler    	Give the scheduler name:
+				1) Fair Scheduler (need to configure. http://hadoop.apache.org/docs/stable/fair_scheduler.html)
+				2) FIFO (it is default comes with Hadoop)
+				3) Capacity Scheduler (need to configure. http://hadoop.apache.org/docs/stable/capacity_scheduler.html)
+				If your hadoop has Fair Scheduler then provide --pool-name.
+				Example: --hadoop-scheduler Fair
+					 --hadoop-scheduler Capacity
+					 --hadoop-scheduler FIFO
+
+--queue-name    		If your hadoop has Capacity Scheduler then provide --queue-name.
+				Example: --queue-name pg1
+--job-priority    		Give the job priority to run your job.
+				Possible options: [ VERY_LOW | LOW | NORMAL | HIGH | VERY_HIGH ]
+				Example: --job-priority VERY_HIGH
+				
+--verbose                 	To print inputs on screen.  
+--test                 	To run a test for all dependency and all.
+--help                	To run a test for all dependency and all.
+
 }}}
-
-Note that after uncompressing the tar.gz file, a new folder will be created named Allim_1.0. This directory contains the following files:
-
-
-http://allim.googlecode.com/files/Allim_folder.png
-
-=4. The Validation of the Installation & Sample Input Files=
-To validate the installation of the Allim pipeline it can be run with a small test data set. The test data set and the corresponding Allim configuration files can be obtained from the following URLs:
