@@ -5,7 +5,35 @@
 
 
 =1. Introduction=
-Allim, Allelic imbalance meter, offers an integrated and user-friendly solution for measuring allele specific gene expression (ASE) within species. Allim estimates allelic imbalance in F1 hybrids. Since mapping bias is the largest problem for reliable estimates of allele specific gene expression using RNA-seq, Allim combines two different measures to account for mapping biases. First, Allim generates a polymorphism aware reference genome that accounts for the sequence variation between the alleles of both parents (or parental lines). Second, Allim includes a sequence specific simulation tool to estimate the remaining mapping bias. This estimated mapping bias is then incorporated in the statistical tests for allelic imbalance.
+DistMap? provides a framework to map short reads with BWA, GSNAP, TopHat?, Bowtie and soapAligner. 
 
-The pipeline requires whole transcript high throughput RNA sequencing (RNA-seq) reads of F1 hybrids. Additionally, either RNA-seq reads for both parents, genomic sequencing reads for both parents or two private genomes for both parents have to be provided in separate files. Allim was tested on Illumina paired-end RNA-seq reads but it can also handle FASTQ files from other NGS sequencing platforms. The provided parental RNA-seq libraries can be from homozygous as well as heterozygous parents (however, all heterozygous loci will be excluded during the analysis).
-Allim has five modules that can be run by a single command. All input parameters can be specified in the AllimOptions file. These parameters are then used to run the complete pipeline. Allim provides two different input options:
+
+=2. System Requirements=
+DistMap is implemented in Perl and runs on all Unix operating systems.
+It requires only Perl 5.8 or higher. In current release it supports 5 short read mappers.
+==2.1 bwa ==
+
+==2.2 GSNAP ==
+
+==2.3 TopHat ==
+
+
+==2.4 Bowtie ==
+
+==2.4 soapAligner ==
+  * Linux or Macintosh OSX system or any other Unix 64 bit system with at least 4 GB of RAM and 2 CPU (processors)
+  * Python 2.7.3 [http://www.python.org/download/]
+
+=3. How to get DistMap?=
+The user can download the latest version of Allim from http://code.google.com/p/allim/. The file to download is called Allim_1.0.tar.gz. Move the file to an appropriate directory and run the following command to uncompress the file:
+{{{
+tar –zxvf Allim_1.0.tar.gz
+}}}
+
+Note that after uncompressing the tar.gz file, a new folder will be created named Allim_1.0. This directory contains the following files:
+
+
+http://allim.googlecode.com/files/Allim_folder.png
+
+=4. The Validation of the Installation & Sample Input Files=
+To validate the installation of the Allim pipeline it can be run with a small test data set. The test data set and the corresponding Allim configuration files can be obtained from the following URLs:
