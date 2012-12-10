@@ -24,7 +24,7 @@ It requires only Perl 5.8 or higher. In current release it supports 5 short read
   * Linux or Macintosh OSX system or any other Unix 64 bit system with at least 4 GB of RAM and 2 CPU (processors)
   * Python 2.7.3 [http://www.python.org/download/]
 
-=3. How to get DistMap?=
+=3. How to get DistMap=
 The user can download the latest version of Allim from http://code.google.com/p/allim/. The file to download is called Allim_1.0.tar.gz. Move the file to an appropriate directory and run the following command to uncompress the file:
 {{{
 tar –zxvf Allim_1.0.tar.gz
