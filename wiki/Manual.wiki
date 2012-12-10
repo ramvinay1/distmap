@@ -23,6 +23,7 @@ It requires only Perl 5.8 or higher. In current release it supports 5 short read
 ==2.4 soapAligner ==
 
 {{{
+Usage: perl $script
 
 --reference-fasta      		Reference fasta file full path. MANDATORY parameter.
   
@@ -120,7 +121,8 @@ Hadoop streaming Parameters:
 				1) Fair Scheduler (need to configure. http://hadoop.apache.org/docs/stable/fair_scheduler.html)
 				2) FIFO (it is default comes with Hadoop)
 				3) Capacity Scheduler (need to configure. http://hadoop.apache.org/docs/stable/capacity_scheduler.html)
-				If your hadoop has Fair Scheduler then provide --pool-name.
+				If your hadoop has Fair Scheduler then provide pool name with parameter --queue-name
+				If your hadoop has Capacity Scheduler then provide  queue name with parameter --queue-name.
 				Example: --hadoop-scheduler Fair
 					 --hadoop-scheduler Capacity
 					 --hadoop-scheduler FIFO
