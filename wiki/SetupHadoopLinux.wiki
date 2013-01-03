@@ -166,8 +166,6 @@ You should now log in without password.
 
 master must have passphaseless log in authorities to all slaves.
 
-cat ~/.ssh/id_rsa.pub | ssh cluster@ubuntu01-02 "cat - >> ~/.ssh/authorized_keys"
-
 {{{
 cluster@ubuntu01-01:~$ ssh-copy-id -i $HOME/.ssh/id_rsa.pub cluster@ubuntu01-02
 cluster@ubuntu01-01:~$ ssh-copy-id -i $HOME/.ssh/id_rsa.pub cluster@ubuntu01-03
