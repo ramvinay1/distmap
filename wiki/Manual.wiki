@@ -5,7 +5,11 @@
 
 
 =1. Introduction=
-`DistMap` provides a scalable and portable framework to map short reads on a hadoop cluster. Currently it supports 5 mappers (BWA, GSNAP, `TopHat`, Bowtie SOAP, STAR, Bismask and BSMAP) to map reads in Fastq file format. It takes pair-end and single-end reads into FASTQ format and give output in SAM or BAM format.
+`DistMap` provides a scalable and portable framework to map short reads on a hadoop cluster. It is a complete pipeline especially designed for non-expers. Currently DistMap supports 8 mappers:
+
+*BWA* (http://soap.genomics.org.cn/soapaligner.html)
+*GSNAP* (http://soap.genomics.org.cn/soapaligner.html), `TopHat`, Bowtie
+*SOAP* (http://soap.genomics.org.cn/soapaligner.html), STAR, Bismask and BSMAP) to map reads in Fastq file format. It takes pair-end and single-end reads into FASTQ format and give output in SAM or BAM format.
 
 
 =2. System Requirements=
