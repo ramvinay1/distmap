@@ -22,3 +22,11 @@ If you have, for examples, the following nodes:<br><br>
 {{{
 ubuntu01-01
 }}}
+
+*slaves:*
+{{{
+ubuntu01-02
+ubuntu01-03
+ubuntu01-04
+ubuntu01-05
+}}}
