@@ -166,8 +166,64 @@ Hadoop streaming Parameters:
 
 =6 `TopHat` mapping =
 
+==Get Bowtie for Bismark mapping==
+As Bismark uses bowtie for mapping internally therefore get Bowtie binaries from http://sourceforge.net/projects/bowtie-bio/files/bowtie/0.12.9/ and copy following bowtie executables from */home/user/bowtie-0.12.9* folder into */home/user/bismark_v0.7.7* folder.
+{{{
+cp /home/user/bowtie-0.12.9/bowtie /home/user/bismark_v0.7.7/
+cp /home/user/bowtie-0.12.9/bowtie-build /home/user/bismark_v0.7.7/
+cp /home/user/bowtie-0.12.9/bowtie-build-debug /home/user/bismark_v0.7.7/
+cp /home/user/bowtie-0.12.9/bowtie-debug /home/user/bismark_v0.7.7/
+cp /home/user/bowtie-0.12.9/bowtie-inspect /home/user/bismark_v0.7.7/
+cp /home/user/bowtie-0.12.9/bowtie-inspect-debug /home/user/bismark_v0.7.7/
+}}}
+
+
+
+
+In */home/user/bismark_v0.7.7* folder you should get following executables:
+
+
+{{{
+/home/user/bismark_v0.7.7/bismark
+/home/user/bismark_v0.7.7/bismark_genome_preparation
+/home/user/bismark_v0.7.7/bismark_methylation_extractor
+/home/user/bismark_v0.7.7/bowtie
+/home/user/bismark_v0.7.7/bowtie-build
+/home/user/bismark_v0.7.7/bowtie-build-debug
+/home/user/bismark_v0.7.7/bowtie-debug
+/home/user/bismark_v0.7.7/bowtie-inspect
+/home/user/bismark_v0.7.7/bowtie-inspect-debug
+}}}
+
+
+Give the full path for `DistMap` command parameter
+ 
+{{{
+perl DistMap_v_1.0/distmap --mapper-path /home/user/bismark_v0.7.7/bismark
+}}}
 
 =7 Bowtie mapping =
+==Get Bowtie for Bismark mapping==
+Download Bowtie binaries from http://sourceforge.net/projects/bowtie-bio/files/bowtie/0.12.9/
+
+
+In */home/user/bowtie-0.12.9* folder you should get following executables:
+
+{{{
+/home/user/bowtie-0.12.9/bowtie
+/home/user/bowtie-0.12.9/bowtie-build
+/home/user/bowtie-0.12.9/bowtie-build-debug
+/home/user/bowtie-0.12.9/bowtie-debug
+/home/user/bowtie-0.12.9/bowtie-inspect
+/home/user/bowtie-0.12.9/bowtie-inspect-debug
+}}}
+
+Give the full path for `DistMap` command parameter
+ 
+{{{
+perl DistMap_v_1.0/distmap --mapper-path /home/user/bowtie-0.12.9/bowtie
+}}}
+
 
 =8 SOAP mapping =
 
