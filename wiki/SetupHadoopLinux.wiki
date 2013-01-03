@@ -6,11 +6,11 @@
 
 
 
-Download Apache Hadoop stable version from http://www.us.apache.org/dist/hadoop/common/stable/ and put into /usr/local/hadoop hadoop-1.0.3
+Download Apache Hadoop stable version from http://www.us.apache.org/dist/hadoop/common/stable/ and put into /usr/local/hadoop-1.0.3
 
 The JAVA_HOME is /usr/lib/jvm/java/jdk1.6.0_22
 
-The HADOOP_HOME is /usr/local/hadoop hadoop-1.0.3
+The HADOOP_HOME is /usr/local/hadoop-1.0.3
 
 =1. Network=
 ==Edit /etc/hosts on every node==
@@ -291,15 +291,16 @@ Display output:
 =8. Stop Cluster=
 
 Close MapReduce daemons
+
 Run on master:
 {{{
 /usr/local/hadoop-1.0.3/bin/stop-mapred.sh
 }}}
 
 Close HDFS daemons
+
 Run on master:
 
 {{{
 /usr/local/hadoop-1.0.3/bin/stop-dfs.sh
 }}}
-
