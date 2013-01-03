@@ -186,17 +186,17 @@ BSMAP is a short reads mapping software for bisulfite sequencing reads. Bisulfit
 
 
 
-Step1: Download the BSMAP source code from http://bsmap.googlecode.com/files/bsmap-2.73.tgz
+*Step1:* Download the BSMAP source code from http://bsmap.googlecode.com/files/bsmap-2.73.tgz
 
-Step2: Uncompress the downloaded file “bsmap-2.73.tgz” with following command:
+*Step2:* Uncompress the downloaded file “bsmap-2.73.tgz” with following command:
 {{{
 tar -xzvf bsmap-2.73.tgz
 }}}
-Step3: Enter the uncompressed folder “bsmap-2.73” with following command:
+*Step3:* Enter the uncompressed folder “bsmap-2.73” with following command:
 {{{
 cd bsmap-2.73
 }}}
-Step4: To install the BSMAP package run these two commands:
+*Step4:* To install the BSMAP package run these two commands:
 
 {{{
 sudo make
@@ -205,7 +205,7 @@ sudo make install
 
 The above four commands will build bsmap executable in “/usr/bin”
 
-Step5: To check the BSMAP installations run this command:
+*Step5:* To check the BSMAP installations run this command:
 {{{
 
 bsmap –h
@@ -213,6 +213,6 @@ bsmap –h
 
 This command will return the detailed help manual for various BSMAP parameters if the installation was successful.
 
-Note: For more detailed information how to install GSNAP please read the bsmap-2.73/README.txt file.
+Note: For more detailed information how to run BSMAP please read the bsmap-2.73/README.txt file.
 
  
