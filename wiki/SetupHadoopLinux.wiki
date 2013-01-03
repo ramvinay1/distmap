@@ -20,4 +20,5 @@ Add your content here.  Format your content with:
 Download Apache Hadoop stable version from http://www.us.apache.org/dist/hadoop/common/stable/ and put into /usr/local/hadoop hadoop-1.0.3
 
 The JAVA_HOME is /usr/lib/jvm/java/jdk1.6.0_22
+
 The HADOOP_HOME is /usr/local/hadoop hadoop-1.0.3
