@@ -1,5 +1,5 @@
-#summary How to use DistMap is explained here
-Setup Multi-Node Hadoop Cluster On Linux
+#summary Setup Multi-Node Hadoop Cluster On Linux
+
 
 
 <wiki:toc max_depth="3" />
