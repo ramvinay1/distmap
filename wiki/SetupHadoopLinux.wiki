@@ -266,7 +266,7 @@ http://localhost:50060/ – web UI for task tracker(s)
 http://localhost:50070/ – web UI for HDFS name node(s)
 }}}
 
-=7. Run a Map Reduce Job, WordCount=
+=7. Run a Map Reduce Job`(WordCount)`=
 Create a directory named "input" in HDFS:
 {{{
 /usr/local/hadoop-1.0.3/bin/hadoop dfs -mkdir input
@@ -305,9 +305,9 @@ Run on master:
 /usr/local/hadoop-1.0.3/bin/stop-dfs.sh
 }}}
 
-=9. Run DistMap=
+=9. Run `DistMap`=
 
-To run distmap:
+To run DistMap:
 
 Start MapReduce daemons
 
