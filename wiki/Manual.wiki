@@ -24,13 +24,19 @@
 
 =3. How to run `DistMap`?=
 
-Download source code of  `DistMap ` from http://distmap.googlecode.com/files/DistMap_v1.0.tar.gz
+Download source code of  `DistMap ` from http://distmap.googlecode.com/files/DistMap_v1.0.tar.gz and run following command on terminal to uncompressed the source code.
 
 {{{
 tar -xzvf DistMap_v1.0.tar.gz
 
+}}}
+
+Run following command to get `DistMap` command line parameters.
+{{{
 perl DistMap_v1.0/distmap --help
 }}}
+
+
 
 =3 BWA mapping =
 
