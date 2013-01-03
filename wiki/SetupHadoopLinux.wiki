@@ -130,4 +130,47 @@ Under conf/, edit the following files, note that "/path/to/your/hadoop" should b
   </configuration>
 }}}
 
+*conf/mapred-site.xml*
+
+{{{
+<configuration>
+    <property>
+      <name>mapred.job.tracker</name>
+      <value>ubuntu01-01:9001</value>
+    </property>
+  </configuration>
+}}}
+
 ===4)  Configure passphaseless ssh===
+{{{
+ssh localhost
+}}}
+
+You will beed password to log in ssh.
+
+{{{
+ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa
+cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+exit
+}}}
+
+Configuration done. Try:
+{{{
+ssh localhost
+}}}
+
+You should now log in without password.
+
+
+=3. SSH Access=
+
+master must have passphaseless log in authorities to all slaves.
+
+cat ~/.ssh/id_rsa.pub | ssh cluster@ubuntu01-02 "cat - >> ~/.ssh/authorized_keys"
+
+{{{
+cluster@ubuntu01-01:~$ ssh-copy-id -i $HOME/.ssh/id_rsa.pub cluster@ubuntu01-02
+cluster@ubuntu01-01:~$ ssh-copy-id -i $HOME/.ssh/id_rsa.pub cluster@ubuntu01-03
+cluster@ubuntu01-01:~$ ssh-copy-id -i $HOME/.ssh/id_rsa.pub cluster@ubuntu01-04
+cluster@ubuntu01-01:~$ ssh-copy-id -i $HOME/.ssh/id_rsa.pub cluster@ubuntu01-05
+}}}
