@@ -242,12 +242,19 @@ This command will return the perl script soap2sam.pl
 cp soap2sam.pl /home/user/soap2.20/
 }}}
 
-In /home/user/soap2.20 folder you should get following executables: 
+In */home/user/soap2.20* folder you should get following executables: 
 
 {{{
 /home/user/soap2.20/soap2
 /home/user/soap2.20/2bwt-builder
 /home/user/soap2.20/soap2sam.pl
+}}}
+
+
+Give the full path for `DistMap` command parameter
+ 
+{{{
+perl DistMap_v_1.0/distmap --mapper-path /home/user/soap2.20/soap2
 }}}
 
 
