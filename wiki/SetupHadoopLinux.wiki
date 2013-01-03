@@ -1,6 +1,11 @@
-#summary One-sentence summary of this page.
+#summary How to use DistMap is explained here
+Setup Multi-Node Hadoop Cluster On Linux
 
-= Introduction =
+
+<wiki:toc max_depth="3" />
+
+
+=1. Introduction=
 
 Add your content here.
 
