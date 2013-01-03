@@ -9,7 +9,8 @@ DistMap provides a scalable and portable framework to map short reads on a hadoo
 
 
 =2. System Requirements=
-DistMap is implemented in Perl and runs on all Unix operating systems.
+`DistMap` is implemented in Perl and runs on all Unix operating systems.
+
 It requires Perl 5.8 or higher, MergeSamFiles.jar and SortSam.jar from PICARD (http://picard.sourceforge.net).
 
 =3 BWA mapping =
