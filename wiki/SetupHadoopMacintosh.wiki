@@ -8,7 +8,7 @@
 
 Download Apache Hadoop stable version from http://www.us.apache.org/dist/hadoop/common/stable/ and put into /usr/local/hadoop-1.0.3
 
-The JAVA_HOME is /usr/lib/jvm/java/jdk1.6.0_22
+The JAVA_HOME is /System/Library/Frameworks/JavaVM.framework/Versions/1.6.0/
 
 The HADOOP_HOME is /usr/local/hadoop-1.0.3
 
