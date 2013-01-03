@@ -16,4 +16,5 @@ The HADOOP_HOME is /usr/local/hadoop hadoop-1.0.3
 ==Edit /etc/hosts on every node==
 
 If you have, for examples, the following nodes:
+
 (remeber to replace the hostname according to your machine. eg.ubuntu01-01,ubuntu01-02)
