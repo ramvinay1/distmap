@@ -12,16 +12,24 @@ DistMap provides a scalable and portable framework to map short reads on a hadoo
 DistMap is implemented in Perl and runs on all Unix operating systems.
 It requires Perl 5.8 or higher, MergeSamFiles.jar and SortSam.jar from PICARD (http://picard.sourceforge.net).
 
-==2.1 bwa ==
+=3 BWA mapping =
 
-==2.2 GSNAP ==
+=4 GSNAP mapping =
 
-==2.3 TopHat ==
+=5 `TopHat` mapping =
 
 
-==2.4 Bowtie ==
+=6 Bowtie mapping =
 
-==2.4 soapAligner ==
+=7 SOAP mapping =
+
+=5 STAR mapping =
+
+
+=6 Bismak mapping =
+
+=7 BSMAP mapping =
+
 
 {{{
 Usage: perl DistMap_v1.0/distmap
