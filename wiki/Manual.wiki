@@ -37,24 +37,7 @@ perl DistMap_v1.0/distmap --help
 }}}
 
 
-
-=3 BWA mapping =
-
-=4 GSNAP mapping =
-
-=5 `TopHat` mapping =
-
-
-=6 Bowtie mapping =
-
-=7 SOAP mapping =
-
-=5 STAR mapping =
-
-
-=6 Bismak mapping =
-
-=7 BSMAP mapping =
+==DistMap command line parameters==
 
 
 {{{
@@ -176,3 +159,21 @@ Hadoop streaming Parameters:
 
 
 }}}
+
+=4 BWA mapping =
+
+=5 GSNAP mapping =
+
+=6 `TopHat` mapping =
+
+
+=7 Bowtie mapping =
+
+=8 SOAP mapping =
+
+=9 STAR mapping =
+
+
+=10 Bismak mapping =
+
+=11 BSMAP mapping =
