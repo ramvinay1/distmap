@@ -175,5 +175,9 @@ Hadoop streaming Parameters:
 
 
 =10 Bismak mapping =
+Download source code of bism
+bsmap.googlecode.com/files/bsmap-2.73.tgz
+
 
 =11 BSMAP mapping =
+Download the source code of BSMAP from bsmap.googlecode.com/files/bsmap-2.73.tgz
