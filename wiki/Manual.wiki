@@ -173,6 +173,7 @@ Hadoop streaming Parameters:
 
 =9 STAR mapping =
 
+Download binary of STAR from ftp://ftp2.cshl.edu/gingeraslab/tracks/STARrelease/2.2.0/ and give the full path for DistMap command parameter --mapper-path /home/user/STAR_2.2.0c.Linux_x86_64/STAR
 
 =10 Bismak mapping =
 Bismark A bisulfite read mapper and methylation caller
