@@ -171,6 +171,85 @@ Hadoop streaming Parameters:
 
 =8 SOAP mapping =
 
+==SOAPaligner/soap2 installation==
+SOAPaligner/soap2 is short read mapper which allows gapped and un-gapped mapping of short reads. 
+
+*Step1:* Download latest SOAPaligner/soap2 source code from http:// soap.genomics.org.cn/down/SOAPaligner-v2.20-src.tar.gz
+
+*Step2:* Uncompress the downloaded file SOAPaligner-v2.20-src.tar.gz with following command:
+{{{
+tar -xzvf SOAPaligner-v2.20-src.tar.gz
+}}}
+
+This command will return the folder/directory *soap2.20*
+*Step3:* Enter into the uncompressed folder soap2.20 with following command:
+{{{
+	cd /home/user/soap2.20
+}}}
+
+*Step4:* To make soap executable run the make command:
+{{{
+	make
+}}}
+After running the make command an executable called soap will be created in */home/user/soap2.20* folder. 
+
+==SOAPaligner_builder installation==
+To run SOAPaligner, need to build index files for the reference genome, and then search reads against the formatted index files.
+
+*Step1:* Download latest SOAPaligner_builder source code from http://soap.genomics.org.cn/down/SOAPaligner-v2.20-src_builder.tar.gz
+
+
+*Step2:* Uncompress the downloaded file SOAPaligner-v2.20-src_builder.tar.gz with following command:
+
+{{{
+tar –xzvf SOAPaligner-v2.20-src_builder.tar.gz
+}}}
+
+This command will return the folder/directory *soap_builder*
+
+*Step3:* Enter into the uncompressed folder *soap_builder* with following command:
+{{{
+	cd /home/user/soap_builder
+}}}
+
+*Step4:* To make soap executable run the make command:
+{{{
+ make
+}}}
+
+After running the make command an executable called *2bwt-builder* will be created into folder */home/user/soap_builder*. 
+
+*Step5:* Copy *2bwt-builder* file into /home/user/soap2.20 folder with following command:
+{{{
+cp /home/user/soap_builder/2bwt-builder /home/user/soap2.20/
+}}}
+
+
+==soap2sam.pl installation:==
+This is a Perl script, which is required to convert soap output format into common SAM format.
+
+*Step1:* Download latest soap2sam.pl source code from http:// soap.genomics.org.cn/down/soap2sam.tar.gz
+
+*Step2:* Uncompress the downloaded file soap2sam.tar.gz with following command:
+{{{
+tar –xzvf soap2sam.tar.gz
+}}}
+
+This command will return the perl script soap2sam.pl
+
+*Step3:* Copy *soap2sam.pl* file into /home/user/soap2.20 folder with following command:
+{{{
+cp soap2sam.pl /home/user/soap2.20/
+}}}
+
+`DistMap` requires soap, 2bwt-builder and  soap2sam.pl three executables within a same folder/directory.
+
+
+To run soap mapping with DisMap three files should be kept in same folder. When you give –mapper-path paramter to DistMap it will expect the 2bwt-builder executable and soap2sam.pl script in same path.
+
+
+
+
 =9 STAR mapping =
 
 Download binary of STAR from ftp://ftp2.cshl.edu/gingeraslab/tracks/STARrelease/2.2.0/
