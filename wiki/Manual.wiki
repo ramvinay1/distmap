@@ -161,6 +161,40 @@ Hadoop streaming Parameters:
 }}}
 
 =4 BWA mapping =
+Burrows-Wheeler Aligner (BWA) is an efficient program that aligns relatively short nucleotide sequences against a long reference sequence such as the human. 
+
+*Step1:* Download latest BWA source code from http://sourceforge.net/projects/bio-bwa/files/
+
+
+*Step2:* Uncompress the downloaded file bwa-0.6.2.tar.bz2 with following command:
+
+{{{
+tar -xvjf bwa-0.6.2.tar.bz2
+}}}
+
+This command will return the folder/directory *bwa-0.6.2*
+
+Step3: Enter into the uncompressed folder *bwa-0.6.2* with following command:
+
+{{{
+cd /home/user/bwa-0.6.2
+}}}
+
+Step4: To make BWA executable run the *sudo make* command:
+
+{{{
+sudo make
+}}}
+
+After running the make command an executable called bwa will be created in */home/user/bwa-0.6.2* folder.
+
+Give the full path for `DistMap` command parameter
+ 
+{{{
+perl DistMap_v_1.0/distmap --mapper-path /home/user/bwa-0.6.2/bwa
+}}}
+
+
 
 =5 GSNAP mapping =
 
