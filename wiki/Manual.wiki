@@ -9,8 +9,8 @@
 
 *BWA* (http://soap.genomics.org.cn/soapaligner.html)<br>
 *GSNAP* (http://soap.genomics.org.cn/soapaligner.html)<br>
-*`TopHat`*<br>
-*Bowtie*<br>
+*`TopHat`* (http://tophat.cbcb.umd.edu/)<br>
+*Bowtie* (http://bowtie-bio.sourceforge.net/index.shtml)<br>
 *SOAP* (http://soap.genomics.org.cn/soapaligner.html)<br>
 *STAR*<br>
 *Bismask*<br>
