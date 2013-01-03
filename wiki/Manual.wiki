@@ -164,6 +164,61 @@ Hadoop streaming Parameters:
 
 =5 GSNAP mapping =
 
+GSNAP (Genomic Short-read Nucleotide Alignment Program) is a mapper for RNA-seq data. It has the advantages that it can detect splicing events and is capable of SNP tolerant alignments (Wu & Nacu 2010).
+
+*Step1:* Download the GSNAP source code from 
+http://research-pub.gene.com/gmap/src/gmap-gsnap-2012-07-20.tar.gz
+
+*Step2:* Uncompress the downloaded file “gmap-gsnap-2012-07-20.tar.gz” with following command:
+{{{
+tar -xzvf gmap-gsnap-2012-07-20.tar.gz
+}}}
+
+Step3: Enter into the uncompressed folder *gmap-2012-07-20* with following command:
+
+{{{
+  cd /home/user/gmap-2012-07-20
+}}}
+
+
+*Step4:* To install the gmap package run these four commands:
+{{{
+./configure --prefix=/home/user/gmap-2012-07-20
+make
+make check   (optional)
+make install
+}}}
+
+The above four commands will build GSNAP and other executables in */home/user/gmap-2012-07-20/bin*
+
+*Step5:* To check the GSNAP installations run this command:
+{{{
+/home/user/gmap-2012-07-20/bin/gsnap –help
+}}}
+
+This command will return the detailed help manual for various GSNAP parameters if the installation was successful.
+
+*Note:* For more detailed information how to install GSNAP please read the gmap-2012-07-20/README file.
+
+
+In */home/user/gmap-2012-07-20* folder you should get following executables:
+
+
+{{{
+/home/user/gmap-2012-07-20/bin/gsnap
+/home/user/gmap-2012-07-20/bin/gmap_build
+
+}}}
+
+Give the full path for `DistMap` command parameter
+ 
+{{{
+perl DistMap_v_1.0/distmap --mapper-path /home/user/gmap-2012-07-20/bin/gsnap
+}}}
+
+
+
+
 =6 `TopHat` mapping =
 Download TopHat binary from http://tophat.cbcb.umd.edu/downloads/tophat-2.0.6.OSX_x86_64.tar.gz for Macintosh or from http://tophat.cbcb.umd.edu/downloads/tophat-2.0.6.Linux_x86_64.tar.gz for Linux operating system.
 
@@ -185,27 +240,8 @@ In */home/user/tophat-2.0.6* folder you should get following executables:
 
 
 {{{
-/home/user/tophat-2.0.6/AUTHORS
-/home/user/tophat-2.0.6/COPYING
-/home/user/tophat-2.0.6/README
-/home/user/tophat-2.0.6/bam2fastx
-/home/user/tophat-2.0.6/bam_merge
-/home/user/tophat-2.0.6/bed_to_juncs
-/home/user/tophat-2.0.6/contig_to_chr_coords
-/home/user/tophat-2.0.6/fix_map_ordering
-/home/user/tophat-2.0.6/gtf_juncs
-/home/user/tophat-2.0.6/gtf_to_fasta
-/home/user/tophat-2.0.6/juncs_db
-/home/user/tophat-2.0.6/long_spanning_reads
-/home/user/tophat-2.0.6/map2gtf
 /home/user/tophat-2.0.6/prep_reads
-/home/user/tophat-2.0.6/sam_juncs
-/home/user/tophat-2.0.6/segment_juncs
-/home/user/tophat-2.0.6/sra_to_solid
 /home/user/tophat-2.0.6/tophat
-/home/user/tophat-2.0.6/tophat-fusion-post
-/home/user/tophat-2.0.6/tophat2
-/home/user/tophat-2.0.6/tophat_reports
 
 /home/user/tophat-2.0.6/bowtie
 /home/user/tophat-2.0.6/bowtie-build
