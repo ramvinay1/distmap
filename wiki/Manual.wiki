@@ -15,7 +15,8 @@
 *STAR* (http://gingeraslab.cshl.edu/STAR/)<br>
 *Bismask* (http://www.bioinformatics.babraham.ac.uk/projects/bismark/)<br>
 *BSMAP* (http://code.google.com/p/bsmap/)<br>
-) to map reads in Fastq file format. It takes pair-end and single-end reads into FASTQ format and give output in SAM or BAM format.
+
+ `DistMap' support paire-end and single-end read mapping in FASTQ file format. It returns the final output as a SAM or BAM file.
 
 
 =2. System Requirements=
