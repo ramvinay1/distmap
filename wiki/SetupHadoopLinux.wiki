@@ -252,3 +252,54 @@ run jps on slaves, you should see something like this:
 8620 Jps
 }}}
 
+=6. Hadoop Web Interfaces=
+There are some web interfaces that let you know what is going on with the running hadoop.
+{{{
+http://localhost:50030/ – web UI for MapReduce job tracker(s)
+}}}
+
+{{{
+http://localhost:50060/ – web UI for task tracker(s)
+}}}
+
+{{{
+http://localhost:50070/ – web UI for HDFS name node(s)
+}}}
+
+=7. Run a Map Reduce Job, WordCount=
+Create a directory named "input" in HDFS:
+{{{
+/usr/local/hadoop-1.0.3/bin/hadoop dfs -mkdir input
+}}}
+Copy some text file into input
+{{{
+/usr/local/hadoop-1.0.3/bin/hadoop dfs -put conf/* input
+}}}
+
+Run WordCount
+
+{{{
+/usr/local/hadoop-1.0.3/bin/hadoop jar hadoop-0.20.2-examples.jar wordcount input output
+}}}
+
+Display output:
+{{{
+/usr/local/hadoop-1.0.3/bin/hadoop dfs -cat output/*
+}}}
+
+
+=8. Stop Cluster=
+
+Close MapReduce daemons
+Run on master:
+{{{
+/usr/local/hadoop-1.0.3/bin/stop-mapred.sh
+}}}
+
+Close HDFS daemons
+Run on master:
+
+{{{
+/usr/local/hadoop-1.0.3/bin/stop-dfs.sh
+}}}
+
