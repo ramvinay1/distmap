@@ -23,6 +23,9 @@
 `DistMap` is implemented in Perl and runs on all Unix operating systems. It requires Perl 5.8 or higher, `MergeSamFiles.jar` and `SortSam.jar` from PICARD (http://picard.sourceforge.net).
 
 =3. How to run `DistMap`?=
+
+Download source code of DistMap http://distmap.googlecode.com/files/DistMap_v1.0.tar.gz
+
 =3 BWA mapping =
 
 =4 GSNAP mapping =
