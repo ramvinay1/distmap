@@ -84,3 +84,11 @@ export JAVA_HOME=/usr/lib/jvm/java/jdk1.6.0_22
 
 }}}
 Save & exit.
+
+
+===2) Creates some directories in hadoop home:===
+
+
+===3)  Configurations setup===
+
+===4)  Configure passphaseless ssh===
