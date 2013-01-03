@@ -242,12 +242,13 @@ This command will return the perl script soap2sam.pl
 cp soap2sam.pl /home/user/soap2.20/
 }}}
 
-`DistMap` requires soap, 2bwt-builder and  soap2sam.pl three executables within a same folder/directory.
+In /home/user/soap2.20 folder you should get following executables: 
 
-
-To run soap mapping with DisMap three files should be kept in same folder. When you give –mapper-path paramter to DistMap it will expect the 2bwt-builder executable and soap2sam.pl script in same path.
-
-
+{{{
+/home/user/soap2.20/soap2
+/home/user/soap2.20/2bwt-builder
+/home/user/soap2.20/soap2sam.pl
+}}}
 
 
 =9 STAR mapping =
