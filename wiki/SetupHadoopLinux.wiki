@@ -174,3 +174,30 @@ cluster@ubuntu01-01:~$ ssh-copy-id -i $HOME/.ssh/id_rsa.pub cluster@ubuntu01-03
 cluster@ubuntu01-01:~$ ssh-copy-id -i $HOME/.ssh/id_rsa.pub cluster@ubuntu01-04
 cluster@ubuntu01-01:~$ ssh-copy-id -i $HOME/.ssh/id_rsa.pub cluster@ubuntu01-05
 }}}
+
+You will need the corresponding slave's password to running the above commands.
+Try:
+
+{{{
+cluster@ubuntu01-01:~$ ssh ubuntu01-02
+cluster@ubuntu01-01:~$ ssh ubuntu01-03
+cluster@ubuntu01-01:~$ ssh ubuntu01-04
+cluster@ubuntu01-01:~$ ssh ubuntu01-05
+}}}
+
+You should now log in without password.
+
+=4. First run=
+You should format the HDFS (Hadoop Distributed File System).
+Run the following command on the master:
+{{{
+/usr/local/hadoop-1.0.3/bin/hadoop namenode -format
+}}}
+
+=5. Start Cluster=
+
+==1) Start HDFS Daemons==
+Run the following command on master:
+{{{
+/usr/local/hadoop-1.0.3/bin/start-dfs.sh
+}}}
