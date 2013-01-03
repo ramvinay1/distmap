@@ -189,6 +189,7 @@ You should now log in without password.
 
 =4. First run=
 You should format the HDFS (Hadoop Distributed File System).
+
 Run the following command on the master:
 {{{
 /usr/local/hadoop-1.0.3/bin/hadoop namenode -format
@@ -201,3 +202,53 @@ Run the following command on master:
 {{{
 /usr/local/hadoop-1.0.3/bin/start-dfs.sh
 }}}
+
+Use the following command on every nodes to check the status of daemons:
+
+{{{
+jps
+}}}
+
+run jps on master, you should see something like this:
+{{{
+8211 DataNode
+7803 NameNode
+8620 Jps
+8354 SecondaryNameNode
+}}}
+
+run jps on slaves, you should see something like this:
+
+{{{
+8211 DataNode
+8620 Jps
+}}}
+
+==2) Start MapReduce Daemons==
+Run the following command on master:
+{{{
+/usr/local/hadoop-1.0.3/bin/start-mapred.sh
+}}}
+
+Use the following command on every nodes to check the status of daemons:
+{{{
+jps
+}}}
+
+run jps on master, you should see something like this:
+{{{
+8211 DataNode
+7803 NameNode
+8547 TaskTracker
+8620 Jps
+8422 JobTracker
+8354 SecondaryNameNode
+}}}
+
+run jps on slaves, you should see something like this:
+{{{
+8211 DataNode
+8547 TaskTracker
+8620 Jps
+}}}
+
