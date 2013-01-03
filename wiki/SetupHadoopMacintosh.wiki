@@ -1,13 +1,341 @@
-#summary Setup Multi-Node Hadoop Cluster On Macintosh.
-
-= Introduction =
-
-Add your content here.
+#summary Setup Multi-Node Hadoop Cluster On Macintosh
 
 
-= Details =
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+<wiki:toc max_depth="3" />
+
+
+
+Download Apache Hadoop stable version from http://www.us.apache.org/dist/hadoop/common/stable/ and put into /usr/local/hadoop-1.0.3
+
+The JAVA_HOME is /usr/lib/jvm/java/jdk1.6.0_22
+
+The HADOOP_HOME is /usr/local/hadoop-1.0.3
+
+=1. Network=
+==Edit /etc/hosts on every node==
+
+If you have, for examples, the following nodes:<br><br>
+(remeber to replace the hostname according to your machine. eg.ubuntu01-01,ubuntu01-02)
+
+*master:*
+{{{
+ubuntu01-01
+}}}
+
+*slaves:*
+{{{
+ubuntu01-02
+ubuntu01-03
+ubuntu01-04
+ubuntu01-05
+}}}
+
+==Then add the following lines in /etc/hosts on every node:==
+
+*# /etc/hosts (for master AND slave)*
+
+{{{
+192.168.0.1      ubuntu01-01  
+192.168.0.2      ubuntu01-02
+192.168.0.3      ubuntu01-03
+192.168.0.4      ubuntu01-04
+192.168.0.5      ubuntu01-05
+}}}
+
+=2. Configure=
+== For master:==
+
+edit conf/masters as follow:
+{{{
+ubuntu01-01
+}}}
+
+edit conf/slaves as follow:
+{{{
+ubuntu01-01
+ubuntu01-02
+ubuntu01-03
+ubuntu01-04
+ubuntu01-05
+}}}
+
+==For every node do the follwoings:==
+
+===1) Configure JAVA_HOME===
+{{{
+cd /usr/local/hadoop-1.0.3
+gedit conf/hadoop-env.sh
+}}}
+
+and change:
+{{{
+
+# The java implementation to use. Required.
+# export JAVA_HOME=/usr/lib/j2sdk1.5-sun
+
+}}}
+
+to:
+{{{
+
+# The java implementation to use.  Required.
+export JAVA_HOME=/usr/lib/jvm/java/jdk1.6.0_22
+
+}}}
+Save & exit.
+
+
+===2) Creates some directories in hadoop home:===
+{{{
+cd /usr/local/hadoop-1.0.3
+mkdir tmp
+mkdir hdfs
+mkdir hdfs/name
+mkdir hdfs/data
+}}}
+
+===3)  Configurations setup===
+Under conf/, edit the following files, note that "/path/to/your/hadoop" should be replaced with something like "/usr/local/hadoop-1.0.3"
+
+*conf/core-site.xml*
+{{{
+<configuration>
+    <property>
+      <name>fs.default.name</name>
+      <value>hdfs://ubuntu01-01:9000</value>
+    </property>
+    <property>
+      <name>hadoop.tmp.dir</name>
+      <value>/usr/local/hadoop-1.0.3/tmp</value>
+    </property>
+  </configuration>
+}}}
+
+*conf/hdfs-site.xml*
+{{{
+<configuration>
+    <property>
+      <name>dfs.replication</name>
+      <value>3</value>
+    </property>
+    <property>
+      <name>dfs.name.dir</name>
+      <value>/usr/local/hadoop-1.0.3/hdfs/name</value>
+    </property>
+    <property>
+      <name>dfs.data.dir</name>
+      <value>/usr/local/hadoop-1.0.3/hdfs/data</value>
+    </property>
+  </configuration>
+}}}
+
+*conf/mapred-site.xml*
+
+{{{
+<configuration>
+    <property>
+      <name>mapred.job.tracker</name>
+      <value>ubuntu01-01:9001</value>
+    </property>
+  </configuration>
+}}}
+
+===4)  Configure passphaseless ssh===
+{{{
+ssh localhost
+}}}
+
+You will beed password to log in ssh.
+
+{{{
+ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa
+cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+exit
+}}}
+
+Configuration done. Try:
+{{{
+ssh localhost
+}}}
+
+You should now log in without password.
+
+
+=3. SSH Access=
+
+master must have passphaseless log in authorities to all slaves.
+
+cat ~/.ssh/id_rsa.pub | ssh cluster@ubuntu01-02 "cat - >> ~/.ssh/authorized_keys"
+
+{{{
+cluster@ubuntu01-01:~$ ssh-copy-id -i $HOME/.ssh/id_rsa.pub cluster@ubuntu01-02
+cluster@ubuntu01-01:~$ ssh-copy-id -i $HOME/.ssh/id_rsa.pub cluster@ubuntu01-03
+cluster@ubuntu01-01:~$ ssh-copy-id -i $HOME/.ssh/id_rsa.pub cluster@ubuntu01-04
+cluster@ubuntu01-01:~$ ssh-copy-id -i $HOME/.ssh/id_rsa.pub cluster@ubuntu01-05
+}}}
+
+You will need the corresponding slave's password to running the above commands.
+Try:
+
+{{{
+cluster@ubuntu01-01:~$ ssh ubuntu01-02
+cluster@ubuntu01-01:~$ ssh ubuntu01-03
+cluster@ubuntu01-01:~$ ssh ubuntu01-04
+cluster@ubuntu01-01:~$ ssh ubuntu01-05
+}}}
+
+You should now log in without password.
+
+=4. First run=
+You should format the HDFS (Hadoop Distributed File System).
+
+Run the following command on the master:
+{{{
+/usr/local/hadoop-1.0.3/bin/hadoop namenode -format
+}}}
+
+=5. Start Cluster=
+
+==1) Start HDFS Daemons==
+Run the following command on master:
+{{{
+/usr/local/hadoop-1.0.3/bin/start-dfs.sh
+}}}
+
+Use the following command on every nodes to check the status of daemons:
+
+{{{
+jps
+}}}
+
+run jps on master, you should see something like this:
+{{{
+8211 DataNode
+7803 NameNode
+8620 Jps
+8354 SecondaryNameNode
+}}}
+
+run jps on slaves, you should see something like this:
+
+{{{
+8211 DataNode
+8620 Jps
+}}}
+
+==2) Start MapReduce Daemons==
+Run the following command on master:
+{{{
+/usr/local/hadoop-1.0.3/bin/start-mapred.sh
+}}}
+
+Use the following command on every nodes to check the status of daemons:
+{{{
+jps
+}}}
+
+run jps on master, you should see something like this:
+{{{
+8211 DataNode
+7803 NameNode
+8547 TaskTracker
+8620 Jps
+8422 JobTracker
+8354 SecondaryNameNode
+}}}
+
+run jps on slaves, you should see something like this:
+{{{
+8211 DataNode
+8547 TaskTracker
+8620 Jps
+}}}
+
+=6. Hadoop Web Interfaces=
+There are some web interfaces that let you know what is going on with the running hadoop.
+{{{
+http://localhost:50030/ – web UI for MapReduce job tracker(s)
+}}}
+
+{{{
+http://localhost:50060/ – web UI for task tracker(s)
+}}}
+
+{{{
+http://localhost:50070/ – web UI for HDFS name node(s)
+}}}
+
+=7. Run a Map Reduce Job`(WordCount)`=
+Create a directory named "input" in HDFS:
+{{{
+/usr/local/hadoop-1.0.3/bin/hadoop dfs -mkdir input
+}}}
+Copy some text file into input
+{{{
+/usr/local/hadoop-1.0.3/bin/hadoop dfs -put conf/* input
+}}}
+
+Run WordCount
+
+{{{
+/usr/local/hadoop-1.0.3/bin/hadoop jar hadoop-0.20.2-examples.jar wordcount input output
+}}}
+
+Display output:
+{{{
+/usr/local/hadoop-1.0.3/bin/hadoop dfs -cat output/*
+}}}
+
+
+=8. Stop Cluster=
+
+Close MapReduce daemons
+
+Run on master:
+{{{
+/usr/local/hadoop-1.0.3/bin/stop-mapred.sh
+}}}
+
+Close HDFS daemons
+
+Run on master:
+
+{{{
+/usr/local/hadoop-1.0.3/bin/stop-dfs.sh
+}}}
+
+=9. Run `DistMap`=
+
+To run DistMap:
+
+Start MapReduce daemons
+
+Run on master:
+{{{
+/usr/local/hadoop-1.0.3/bin/start-mapred.sh
+}}}
+
+
+Start HDFS daemons
+
+Run on master:
+{{{
+/usr/local/hadoop-1.0.3/bin/start-dfs.sh
+}}}
+
+Change HDFS filesystem permission
+
+Run on master:
+
+{{{
+/usr/local/hadoop-1.0.3/bin/hadoop dfs -chmod -R 777 /
+}}}
+
+Set permission for tmp folder
+{{{
+/usr/local/hadoop-1.0.3/bin/hadoop dfs -chmod -R 777 /usr/local/hadoop-1.0.3/tmp/
+}}}
+
+
+Go to DistMap manual page [http://code.google.com/p/distmap/wiki/Manual]http://code.google.com/p/distmap/wiki/Manual
