@@ -149,8 +149,8 @@ ssh localhost
 You will beed password to log in ssh.
 
 {{{
-ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa
-cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+ssh-keygen -t dsa -P '' -f ~/.ssh/id_dsa
+cat ~/.ssh/id_dsa.pub >> ~/.ssh/authorized_keys
 exit
 }}}
 
@@ -166,13 +166,12 @@ You should now log in without password.
 
 master must have passphaseless log in authorities to all slaves.
 
-cat ~/.ssh/id_rsa.pub | ssh cluster@macserver01-02 "cat - >> ~/.ssh/authorized_keys"
-
 {{{
-cluster@macserver01-01:~$ ssh-copy-id -i $HOME/.ssh/id_rsa.pub cluster@macserver01-02
-cluster@macserver01-01:~$ ssh-copy-id -i $HOME/.ssh/id_rsa.pub cluster@macserver01-03
-cluster@macserver01-01:~$ ssh-copy-id -i $HOME/.ssh/id_rsa.pub cluster@macserver01-04
-cluster@macserver01-01:~$ ssh-copy-id -i $HOME/.ssh/id_rsa.pub cluster@macserver01-05
+cat ~/.ssh/id_rsa.pub | ssh cluster@macserver01-02 "cat - >> ~/.ssh/authorized_keys"
+cat ~/.ssh/id_rsa.pub | ssh cluster@macserver01-03 "cat - >> ~/.ssh/authorized_keys"
+cat ~/.ssh/id_rsa.pub | ssh cluster@macserver01-04 "cat - >> ~/.ssh/authorized_keys"
+cat ~/.ssh/id_rsa.pub | ssh cluster@macserver01-05 "cat - >> ~/.ssh/authorized_keys"
+
 }}}
 
 You will need the corresponding slave's password to running the above commands.
