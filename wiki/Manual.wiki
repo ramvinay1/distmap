@@ -180,4 +180,4 @@ bsmap.googlecode.com/files/bsmap-2.73.tgz
 
 
 =11 BSMAP mapping =
-Download the source code of BSMAP from bsmap.googlecode.com/files/bsmap-2.73.tgz
+Download the source code of BSMAP from http://bsmap.googlecode.com/files/bsmap-2.73.tgz
