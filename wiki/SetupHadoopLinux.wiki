@@ -98,8 +98,18 @@ mkdir hdfs/data
 ===3)  Configurations setup===
 Under conf/, edit the following files, note that "/path/to/your/hadoop" should be replaced with something like "/usr/local/hadoop-1.0.3"
 
-{{{
 *conf/core-site.xml*
+{{{
+<configuration>
+    <property>
+      <name>fs.default.name</name>
+      <value>hdfs://ubuntu01-01:9000</value>
+    </property>
+    <property>
+      <name>hadoop.tmp.dir</name>
+      <value>/path/to/your/hadoop/tmp</value>
+    </property>
+  </configuration>
 }}}
 
 ===4)  Configure passphaseless ssh===
