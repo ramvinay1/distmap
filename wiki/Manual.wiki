@@ -174,7 +174,7 @@ http://research-pub.gene.com/gmap/src/gmap-gsnap-2012-07-20.tar.gz
 tar -xzvf gmap-gsnap-2012-07-20.tar.gz
 }}}
 
-Step3: Enter into the uncompressed folder *gmap-2012-07-20* with following command:
+*Step3:* Enter into the uncompressed folder *gmap-2012-07-20* with following command:
 
 {{{
   cd /home/user/gmap-2012-07-20
