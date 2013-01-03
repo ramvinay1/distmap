@@ -64,7 +64,7 @@ ubuntu01-05
 
 ===1) Configure JAVA_HOME===
 {{{
-cd hadoop-1.0.3
+cd /usr/local/hadoop-1.0.3
 gedit conf/hadoop-env.sh
 }}}
 
@@ -87,7 +87,13 @@ Save & exit.
 
 
 ===2) Creates some directories in hadoop home:===
-
+{{{
+cd /usr/local/hadoop-1.0.3
+mkdir tmp
+mkdir hdfs
+mkdir hdfs/name
+mkdir hdfs/data
+}}}
 
 ===3)  Configurations setup===
 
