@@ -213,6 +213,6 @@ bsmap –h
 
 This command will return the detailed help manual for various BSMAP parameters if the installation was successful.
 
-Note: For more detailed information how to run BSMAP please read the bsmap-2.73/README.txt file.
+*Note:* For more detailed information how to run BSMAP please read the bsmap-2.73/README.txt file.
 
  
