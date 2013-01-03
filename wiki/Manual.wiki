@@ -12,9 +12,9 @@
 *`TopHat`* (http://tophat.cbcb.umd.edu/)<br>
 *Bowtie* (http://bowtie-bio.sourceforge.net/index.shtml)<br>
 *SOAP* (http://soap.genomics.org.cn/soapaligner.html)<br>
-*STAR*<br>
-*Bismask*<br>
-*BSMAP*<br>
+*STAR* (http://gingeraslab.cshl.edu/STAR/)<br>
+*Bismask* (http://www.bioinformatics.babraham.ac.uk/projects/bismark/)<br>
+*BSMAP* (http://code.google.com/p/bsmap/)<br>
 ) to map reads in Fastq file format. It takes pair-end and single-end reads into FASTQ format and give output in SAM or BAM format.
 
 
