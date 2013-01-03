@@ -34,3 +34,11 @@ ubuntu01-05
 ==Then add the following lines in /etc/hosts on every node:==
 
 *# /etc/hosts (for master AND slave)*
+
+{{{
+192.168.0.1      ubuntu01-01  
+192.168.0.2      ubuntu01-02
+192.168.0.3      ubuntu01-03
+192.168.0.4      ubuntu01-04
+192.168.0.5      ubuntu01-05
+}}}
