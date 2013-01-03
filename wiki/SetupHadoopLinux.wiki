@@ -30,3 +30,7 @@ ubuntu01-03
 ubuntu01-04
 ubuntu01-05
 }}}
+
+==Then add the following lines in /etc/hosts on every node:==
+
+*# /etc/hosts (for master AND slave)*
