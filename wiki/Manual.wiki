@@ -200,15 +200,35 @@ tar -xzvf bismark_v0.7.7.tar.gz
 cd bismark_v0.7.7
 }}}
 
+==Get Bowtie for Bismark mapping==
+As Bismark uses bowtie for mapping internally therefore get Bowtie binaries from http://sourceforge.net/projects/bowtie-bio/files/bowtie/0.12.9/ and copy following bowtie executables from Bowtie folder into 
+/home/user/bismark_v0.7.7 folder.
+{{{
+cp bowtie-0.12.9/bowtie /home/user/bismark_v0.7.7/
+cp bowtie-0.12.9/bowtie-build /home/user/bismark_v0.7.7/
+cp bowtie-0.12.9/bowtie-build-debug /home/user/bismark_v0.7.7/
+cp bowtie-0.12.9/bowtie-debug /home/user/bismark_v0.7.7/
+cp bowtie-0.12.9/bowtie-inspect /home/user/bismark_v0.7.7/
+cp bowtie-0.12.9/bowtie-inspect-debug /home/user/bismark_v0.7.7/
+}}}
 
-In bismark_v0.7.7 folder you should get following executables:
+
+
+
+In /home/user/bismark_v0.7.7 folder you should get following executables:
 
 
 {{{
-bismark_v0.7.7/bismark
-bismark_v0.7.7/bismark_genome_preparation
-bismark_v0.7.7/bismark_methylation_extractor
+/home/user/bismark_v0.7.7/bismark
+/home/user/bismark_v0.7.7/bismark_genome_preparation
+/home/user/bismark_v0.7.7/bismark_methylation_extractor
 
+/home/user/bismark_v0.7.7/bowtie
+/home/user/bismark_v0.7.7/bowtie-build
+/home/user/bismark_v0.7.7/bowtie-build-debug
+/home/user/bismark_v0.7.7/bowtie-debug
+/home/user/bismark_v0.7.7/bowtie-inspect
+/home/user/bismark_v0.7.7/bowtie-inspect-debug
 }}}
 
 
@@ -217,7 +237,6 @@ Give the full path for `DistMap` command parameter
 {{{
 perl DistMap_v_1.0/distmap --mapper-path /home/user/bismark_v0.7.7/bismark
 }}}
-
 
 
 =11 BSMAP mapping =
