@@ -37,7 +37,7 @@ perl DistMap_v1.0/distmap --help
 }}}
 
 
-==DistMap command line parameters==
+===`DistMap` command line parameters===
 
 
 {{{
