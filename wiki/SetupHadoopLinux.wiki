@@ -304,3 +304,38 @@ Run on master:
 {{{
 /usr/local/hadoop-1.0.3/bin/stop-dfs.sh
 }}}
+
+=9. Run DistMap=
+
+To run distmap:
+
+Start MapReduce daemons
+
+Run on master:
+{{{
+/usr/local/hadoop-1.0.3/bin/start-mapred.sh
+}}}
+
+
+Start HDFS daemons
+
+Run on master:
+{{{
+/usr/local/hadoop-1.0.3/bin/start-dfs.sh
+}}}
+
+Change HDFS filesystem permission
+
+Run on master:
+
+{{{
+/usr/local/hadoop-1.0.3/bin/hadoop dfs -chmod -R 777 /
+}}}
+
+Set permission for tmp folder
+{{{
+/usr/local/hadoop-1.0.3/bin/hadoop dfs -chmod -R 777 /usr/local/hadoop-1.0.3/tmp/
+}}}
+
+
+Go to DistMap manual page [http://code.google.com/p/distmap/wiki/Manual]http://code.google.com/p/distmap/wiki/Manual
