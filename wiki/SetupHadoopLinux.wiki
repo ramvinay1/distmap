@@ -1,4 +1,3 @@
-
 #summary Setup Multi-Node Hadoop Cluster On Linux
 
 
@@ -20,3 +19,6 @@ If you have, for examples, the following nodes:<br><br>
 (remeber to replace the hostname according to your machine. eg.ubuntu01-01,ubuntu01-02)
 
 *master:*
+{{{
+ubuntu01-01
+}}}
