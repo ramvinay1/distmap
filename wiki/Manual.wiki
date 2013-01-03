@@ -173,7 +173,10 @@ Hadoop streaming Parameters:
 
 =9 STAR mapping =
 
-Download binary of STAR from ftp://ftp2.cshl.edu/gingeraslab/tracks/STARrelease/2.2.0/ and give the full path for `DistMap` command parameter
+Download binary of STAR from ftp://ftp2.cshl.edu/gingeraslab/tracks/STARrelease/2.2.0/
+
+
+Give the full path for `DistMap` command parameter
  
 {{{
 perl DistMap_v_1.0/distmap --mapper-path /home/user/STAR_2.2.0c.Linux_x86_64/STAR
@@ -207,6 +210,15 @@ bismark_v0.7.7/bismark_genome_preparation
 bismark_v0.7.7/bismark_methylation_extractor
 
 }}}
+
+
+Give the full path for `DistMap` command parameter
+ 
+{{{
+perl DistMap_v_1.0/distmap --mapper-path /home/user/bismark_v0.7.7/bismark
+}}}
+
+
 
 =11 BSMAP mapping =
 
@@ -242,5 +254,13 @@ bsmap –h
 This command will return the detailed help manual for various BSMAP parameters if the installation was successful.
 
 *Note:* For more detailed information how to run BSMAP please read the bsmap-2.73/README.txt file.
+
+
+Give the full path for `DistMap` command parameter
+ 
+{{{
+perl DistMap_v_1.0/distmap --mapper-path /home/user/bsmap-2.73/bsmap
+}}}
+
 
  
