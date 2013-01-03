@@ -59,3 +59,28 @@ ubuntu01-03
 ubuntu01-04
 ubuntu01-05
 }}}
+
+==For every node do the follwoings:==
+
+===1) Configure JAVA_HOME===
+{{{
+cd hadoop-1.0.3
+gedit conf/hadoop-env.sh
+}}}
+
+and change:
+{{{
+
+# The java implementation to use. Required.
+# export JAVA_HOME=/usr/lib/j2sdk1.5-sun
+
+}}}
+
+to:
+{{{
+
+# The java implementation to use.  Required.
+export JAVA_HOME=/usr/lib/jvm/java/jdk1.6.0_22
+
+}}}
+Save & exit.
