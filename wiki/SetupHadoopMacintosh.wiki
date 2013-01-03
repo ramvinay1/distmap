@@ -16,19 +16,19 @@ The HADOOP_HOME is /usr/local/hadoop-1.0.3
 ==Edit /etc/hosts on every node==
 
 If you have, for examples, the following nodes:<br><br>
-(remeber to replace the hostname according to your machine. eg.ubuntu01-01,ubuntu01-02)
+(remeber to replace the hostname according to your machine. eg.macserver01-01,macserver01-02)
 
 *master:*
 {{{
-ubuntu01-01
+macserver01-01
 }}}
 
 *slaves:*
 {{{
-ubuntu01-02
-ubuntu01-03
-ubuntu01-04
-ubuntu01-05
+macserver01-02
+macserver01-03
+macserver01-04
+macserver01-05
 }}}
 
 ==Then add the following lines in /etc/hosts on every node:==
@@ -36,11 +36,11 @@ ubuntu01-05
 *# /etc/hosts (for master AND slave)*
 
 {{{
-192.168.0.1      ubuntu01-01  
-192.168.0.2      ubuntu01-02
-192.168.0.3      ubuntu01-03
-192.168.0.4      ubuntu01-04
-192.168.0.5      ubuntu01-05
+192.168.0.1      macserver01-01  
+192.168.0.2      macserver01-02
+192.168.0.3      macserver01-03
+192.168.0.4      macserver01-04
+192.168.0.5      macserver01-05
 }}}
 
 =2. Configure=
@@ -48,16 +48,16 @@ ubuntu01-05
 
 edit conf/masters as follow:
 {{{
-ubuntu01-01
+macserver01-01
 }}}
 
 edit conf/slaves as follow:
 {{{
-ubuntu01-01
-ubuntu01-02
-ubuntu01-03
-ubuntu01-04
-ubuntu01-05
+macserver01-01
+macserver01-02
+macserver01-03
+macserver01-04
+macserver01-05
 }}}
 
 ==For every node do the follwoings:==
@@ -80,7 +80,7 @@ to:
 {{{
 
 # The java implementation to use.  Required.
-export JAVA_HOME=/usr/lib/jvm/java/jdk1.6.0_22
+export JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Versions/1.6.0/
 
 }}}
 Save & exit.
@@ -103,7 +103,7 @@ Under conf/, edit the following files, note that "/path/to/your/hadoop" should b
 <configuration>
     <property>
       <name>fs.default.name</name>
-      <value>hdfs://ubuntu01-01:9000</value>
+      <value>hdfs://macserver01-01:9000</value>
     </property>
     <property>
       <name>hadoop.tmp.dir</name>
@@ -136,7 +136,7 @@ Under conf/, edit the following files, note that "/path/to/your/hadoop" should b
 <configuration>
     <property>
       <name>mapred.job.tracker</name>
-      <value>ubuntu01-01:9001</value>
+      <value>macserver01-01:9001</value>
     </property>
   </configuration>
 }}}
@@ -166,23 +166,23 @@ You should now log in without password.
 
 master must have passphaseless log in authorities to all slaves.
 
-cat ~/.ssh/id_rsa.pub | ssh cluster@ubuntu01-02 "cat - >> ~/.ssh/authorized_keys"
+cat ~/.ssh/id_rsa.pub | ssh cluster@macserver01-02 "cat - >> ~/.ssh/authorized_keys"
 
 {{{
-cluster@ubuntu01-01:~$ ssh-copy-id -i $HOME/.ssh/id_rsa.pub cluster@ubuntu01-02
-cluster@ubuntu01-01:~$ ssh-copy-id -i $HOME/.ssh/id_rsa.pub cluster@ubuntu01-03
-cluster@ubuntu01-01:~$ ssh-copy-id -i $HOME/.ssh/id_rsa.pub cluster@ubuntu01-04
-cluster@ubuntu01-01:~$ ssh-copy-id -i $HOME/.ssh/id_rsa.pub cluster@ubuntu01-05
+cluster@macserver01-01:~$ ssh-copy-id -i $HOME/.ssh/id_rsa.pub cluster@macserver01-02
+cluster@macserver01-01:~$ ssh-copy-id -i $HOME/.ssh/id_rsa.pub cluster@macserver01-03
+cluster@macserver01-01:~$ ssh-copy-id -i $HOME/.ssh/id_rsa.pub cluster@macserver01-04
+cluster@macserver01-01:~$ ssh-copy-id -i $HOME/.ssh/id_rsa.pub cluster@macserver01-05
 }}}
 
 You will need the corresponding slave's password to running the above commands.
 Try:
 
 {{{
-cluster@ubuntu01-01:~$ ssh ubuntu01-02
-cluster@ubuntu01-01:~$ ssh ubuntu01-03
-cluster@ubuntu01-01:~$ ssh ubuntu01-04
-cluster@ubuntu01-01:~$ ssh ubuntu01-05
+cluster@macserver01-01:~$ ssh macserver01-02
+cluster@macserver01-01:~$ ssh macserver01-03
+cluster@macserver01-01:~$ ssh macserver01-04
+cluster@macserver01-01:~$ ssh macserver01-05
 }}}
 
 You should now log in without password.
