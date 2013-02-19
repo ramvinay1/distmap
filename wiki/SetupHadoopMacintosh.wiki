@@ -112,6 +112,13 @@ Under conf/, edit the following files, note that "/path/to/your/hadoop" should b
   </configuration>
 }}}
 
+==Tested configuration of core-site.xml==
+
+http://distmap.googlecode.com/files/core-site.jpg
+
+
+
+
 *conf/hdfs-site.xml*
 {{{
 <configuration>
