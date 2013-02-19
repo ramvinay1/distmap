@@ -318,7 +318,31 @@ perl DistMap_v_1.0/distmap --mapper-path /home/user/bowtie-0.12.9/bowtie
 }}}
 
 
-=8 SOAP mapping =
+
+=8 Bowtie2 mapping =
+
+Download Bowtie binaries from http://sourceforge.net/projects/bowtie-bio/files/bowtie2/2.0.6/
+
+
+In */home/user/bowtie2-2.0.6* folder you should get following executables:
+
+{{{
+/home/user/bowtie2-2.0.6/bowtie2
+/home/user/bowtie2-2.0.6/bowtie2-build
+/home/user/bowtie2-2.0.6/bowtie2-build-debug
+/home/user/bowtie2-2.0.6/bowtie2-debug
+/home/user/bowtie2-2.0.6/bowtie2-inspect
+/home/user/bowtie2-2.0.6/bowtie2-inspect-debug
+}}}
+
+Give the full path for `DistMap` command parameter
+ 
+{{{
+perl DistMap_v_1.0/distmap --mapper-path /home/user/bowtie2-2.0.6/bowtie2
+}}}
+
+
+=9 SOAP mapping =
 
 ==SOAPaligner/soap2 installation==
 SOAPaligner/soap2 is short read mapper which allows gapped and un-gapped mapping of short reads. 
@@ -407,7 +431,7 @@ perl DistMap_v_1.0/distmap --mapper-path /home/user/soap2.20/soap2
 }}}
 
 
-=9 STAR mapping =
+=10 STAR mapping =
 
 Download binary of STAR from ftp://ftp2.cshl.edu/gingeraslab/tracks/STARrelease/2.2.0/
 
@@ -418,7 +442,7 @@ Give the full path for `DistMap` command parameter
 perl DistMap_v_1.0/distmap --mapper-path /home/user/STAR_2.2.0c.Linux_x86_64/STAR
 }}}
 
-=10 Bismak mapping =
+=11 Bismak mapping =
 Bismark A bisulfite read mapper and methylation caller
  
 www.bioinformatics.babraham.ac.uk/projects/bismark/bismark_v0.7.7.tar.gz
@@ -473,7 +497,7 @@ perl DistMap_v_1.0/distmap --mapper-path /home/user/bismark_v0.7.7/bismark
 }}}
 
 
-=11 BSMAP mapping =
+=12 BSMAP mapping =
 
 BSMAP is a short reads mapping software for bisulfite sequencing reads. Bisulfite treatment converts unmethylated Cytosines into Uracils (sequenced as Thymine) and leave methylated Cytosines unchanged, hence provides a way to study DNA cytosine methylation at single nucleotide resolution. BSMAP aligns the Ts in the reads to both Cs and Ts in the reference.
 
