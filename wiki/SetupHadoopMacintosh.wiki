@@ -317,7 +317,14 @@ Run on master:
 /usr/local/hadoop-1.0.3/bin/stop-dfs.sh
 }}}
 
-=9. Run `DistMap`=
+
+
+=9 Configure Fair scheduler =
+Various pools can be created under Hadoop cluster to run multiple jobs in parellel.
+Here we have a fair-scheduler implementation xml configuration file [http://distmap.googlecode.com/files/fair-scheduler.xml]
+
+
+=10. Run `DistMap`=
 
 To run DistMap:
 
