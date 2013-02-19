@@ -112,7 +112,7 @@ Under conf/, edit the following files, note that "/path/to/your/hadoop" should b
   </configuration>
 }}}
 
-==Tested configuration of core-site.xml==
+*Tested example configuration of core-site.xml*
 
 http://distmap.googlecode.com/files/core-site.jpg
 
@@ -136,6 +136,11 @@ http://distmap.googlecode.com/files/core-site.jpg
     </property>
   </configuration>
 }}}
+
+*Tested example configuration of hdfs-site.xml*
+
+http://distmap.googlecode.com/files/hdfs-site.jpg
+
 
 *conf/mapred-site.xml*
 
