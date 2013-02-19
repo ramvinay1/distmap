@@ -121,6 +121,7 @@ Under conf/, edit the following files, note that "/path/to/your/hadoop" should b
 
 
 *conf/hdfs-site.xml*
+[http://distmap.googlecode.com/files/hdfs-site.xml]
 {{{
 <configuration>
     <property>
@@ -144,6 +145,7 @@ http://distmap.googlecode.com/files/hdfs-site.jpg
 
 
 *conf/mapred-site.xml*
+[http://distmap.googlecode.com/files/mapred-site.xml]
 
 {{{
 <configuration>
@@ -158,6 +160,7 @@ http://distmap.googlecode.com/files/hdfs-site.jpg
 {{{
 ssh localhost
 }}}
+
 
 You will beed password to log in ssh.
 
