@@ -63,6 +63,7 @@ macserver01-05
 ==For every node do the follwoings:==
 
 ===1) Configure JAVA_HOME===
+[http://distmap.googlecode.com/files/hadoop-env.sh]
 {{{
 cd /usr/local/hadoop-1.0.3
 gedit conf/hadoop-env.sh
@@ -138,10 +139,6 @@ Under conf/, edit the following files, note that "/path/to/your/hadoop" should b
     </property>
   </configuration>
 }}}
-
-*Tested example configuration of hdfs-site.xml*
-
-http://distmap.googlecode.com/files/hdfs-site.jpg
 
 
 *conf/mapred-site.xml*
