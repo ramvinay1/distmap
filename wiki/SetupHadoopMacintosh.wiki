@@ -357,4 +357,4 @@ Run on master:
 }}}
 
 
-*10.5 Go to DistMap manual page* [http://code.google.com/p/distmap/wiki/Manual]http://code.google.com/p/distmap/wiki/Manual
+*10.5 Go to `DistMap` manual page* [http://code.google.com/p/distmap/wiki/Manual]http://code.google.com/p/distmap/wiki/Manual
