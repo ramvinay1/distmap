@@ -98,7 +98,8 @@ mkdir hdfs/data
 ===3)  Configurations setup===
 Under conf/, edit the following files, note that "/path/to/your/hadoop" should be replaced with something like "/usr/local/hadoop-1.0.3"
 
-*conf/core-site.xml* [http://distmap.googlecode.com/files/core-site.xml]
+*conf/core-site.xml*
+[http://distmap.googlecode.com/files/core-site.xml]
 {{{
 <configuration>
     <property>
@@ -112,9 +113,9 @@ Under conf/, edit the following files, note that "/path/to/your/hadoop" should b
   </configuration>
 }}}
 
-*Tested example configuration of core-site.xml*
 
-http://distmap.googlecode.com/files/core-site.jpg
+
+
 
 
 
