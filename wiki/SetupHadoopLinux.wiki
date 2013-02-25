@@ -40,6 +40,21 @@ The JAVA_HOME is /usr/lib/jvm/java/jdk1.6.0_22
 
 The HADOOP_HOME is /usr/local/hadoop-1.0.3
 
+=Our configuration files=
+Here we provide a practical guide and following configuration files to setup a Hadoop cluster from the beginning on Linux and Mac OSX 10.6 or higher computers. Main configuration files can be downloaded from following link:
+
+*/usr/local/hadoop-1.0.3/conf/hadoop-env.sh:* http://distmap.googlecode.com/files/hadoop-env.sh
+
+*/usr/local/hadoop-1.0.3/conf/core-site.xml:* http://distmap.googlecode.com/files/core-site.xml 
+
+*/usr/local/hadoop-1.0.3/conf/hdfs-site.xml:* http://distmap.googlecode.com/files/hdfs-site.xml
+
+*/usr/local/hadoop-1.0.3/conf/mapred-site.xml:* http://distmap.googlecode.com/files/mapred-site.xml
+
+*/usr/local/hadoop-1.0.3/fair-scheduler.xml:* http://distmap.googlecode.com/files/fair-scheduler.xml
+
+
+
 =1. Network=
 ==Edit /etc/hosts on every node==
 
