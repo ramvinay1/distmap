@@ -8,8 +8,10 @@
 =Create common group and user account=
 Before starting the hadoop setup it is important to create a common user account and a group on all computers.
 Create the group hadoop and user cluster:
-Step1: Log in as user root.
-Step2: Create the group hadoop using the _groupadd_ utility followed by the name of the group, in this format:
+
+*Step1:* Log in as user root.
+
+*Step2:* Create the group hadoop using the _groupadd_ utility followed by the name of the group, in this format:
     {{{
 groupadd n hadoop
 
@@ -17,13 +19,15 @@ groupadd n hadoop
 
 Where n is an unused group ID greater than 100.
 
-Step3: Create the user cluster using the _useradd_ utility followed by the group (hadoop) and user name (cluster) in this format:
+
+*Step3:* Create the user cluster using the _useradd_ utility followed by the group (hadoop) and user name (cluster) in this format:
 
 {{{
     	useradd -u n -g hadoop cluster
 }}}
 
-Step4: Create a password for the user cluster. To do this, use the _passwd_ utility and the following command:
+
+*Step4:* Create a password for the user cluster. To do this, use the _passwd_ utility and the following command:
 {{{
 passwd cluster
 }}}
