@@ -6,11 +6,59 @@
 
 
 
+=Create common group and user account=
+Before starting the hadoop setup it is important to create a common user account and a group on all computers.
+Create the group hadoop and user cluster:
+
+*Step1:* Log in as user root.
+
+*Step2:* Create the group hadoop using the _groupadd_ utility followed by the name of the group, in this format:
+    {{{
+groupadd n hadoop
+
+}}}
+
+Where n is an unused group ID greater than 100.
+
+
+*Step3:* Create the user cluster using the _useradd_ utility followed by the group (hadoop) and user name (cluster) in this format:
+
+{{{
+    	useradd -u n -g hadoop cluster
+}}}
+
+
+*Step4:* Create a password for the user cluster. To do this, use the _passwd_ utility and the following command:
+{{{
+passwd cluster
+}}}
+
+
+=Download Apache Hadoop=
 Download Apache Hadoop stable version from http://www.us.apache.org/dist/hadoop/common/stable/ and put into /usr/local/hadoop-1.0.3
 
 The JAVA_HOME is /System/Library/Frameworks/JavaVM.framework/Versions/1.6.0/
 
 The HADOOP_HOME is /usr/local/hadoop-1.0.3
+
+=Our configuration files=
+Here we provide a practical guide and following configuration files to setup a Hadoop cluster from the beginning on Linux and Mac OSX 10.6 or higher computers. Main configuration files can be downloaded from following link:
+
+*/usr/local/hadoop-1.0.3/conf/hadoop-env.sh:* http://distmap.googlecode.com/files/hadoop-env.sh
+
+*/usr/local/hadoop-1.0.3/conf/core-site.xml:* http://distmap.googlecode.com/files/core-site.xml 
+
+*/usr/local/hadoop-1.0.3/conf/hdfs-site.xml:* http://distmap.googlecode.com/files/hdfs-site.xml
+
+*/usr/local/hadoop-1.0.3/conf/mapred-site.xml:* http://distmap.googlecode.com/files/mapred-site.xml
+
+*/usr/local/hadoop-1.0.3/fair-scheduler.xml:* http://distmap.googlecode.com/files/fair-scheduler.xml
+
+
+
+Download Apache Hadoop stable version from http://www.us.apache.org/dist/hadoop/common/stable/ and put into /usr/local/hadoop-1.0.3
+
+
 
 =1. Network=
 ==Edit /etc/hosts on every node==
