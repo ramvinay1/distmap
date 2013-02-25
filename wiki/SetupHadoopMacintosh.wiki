@@ -23,7 +23,7 @@ Enter group name hadoop and click on Create Group button.
 {{{
 Click on + symbol and then select Administrator from New account drop down menu
 
-Enter Full name and Account name cluster give password and click on Create Account button.
+Enter Full name and Account name cluster, give password and click on Create Account button.
 }}}
 
 
