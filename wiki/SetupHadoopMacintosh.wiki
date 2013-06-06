@@ -307,7 +307,7 @@ run jps on slaves, you should see something like this:
 }}}
 
 =6. Hadoop Web Interfaces=
-There are some web interfaces that let you know hadoop progress while running the job.
+There are some web interfaces that let you know the live progress report for the running Hadoop jobs.
 {{{
 http://localhost:50030/ – web UI for MapReduce job tracker(s)
 }}}
