@@ -36,7 +36,7 @@ The JAVA_HOME is /System/Library/Frameworks/JavaVM.framework/Versions/1.6.0/
 The HADOOP_HOME is /usr/local/hadoop-1.0.3
 
 =Our configuration files=
-Here we provide a practical guide and following configuration files to setup a Hadoop cluster from the beginning on Linux and Mac OSX 10.6 or higher computers. Main configuration files can be downloaded from following link:
+Here we provide a practical guide and following configuration files to setup a Hadoop cluster from the beginning on Linux and Mac OSX 10.6 or higher computers. The main configuration files can be downloaded from following link:
 
 */usr/local/hadoop-1.0.3/conf/hadoop-env.sh:* http://distmap.googlecode.com/files/hadoop-env.sh
 
@@ -57,8 +57,8 @@ Download Apache Hadoop stable version from http://www.us.apache.org/dist/hadoop/
 =1. Network=
 ==Edit /etc/hosts on every node==
 
-If you have, for examples, the following nodes:<br><br>
-(remeber to replace the hostname according to your machine. eg.macserver01-01,macserver01-02)
+If you have, for example, the following nodes:<br><br>
+(remember to replace the hostname according to your machine. eg.macserver01-01,macserver01-02)
 
 *master:*
 {{{
@@ -139,7 +139,7 @@ mkdir hdfs/data
 }}}
 
 ===3)  Configurations setup===
-Under conf/, edit the following files, note that "/path/to/your/hadoop" should be replaced with something like "/usr/local/hadoop-1.0.3"
+Under conf/, edit the following files, (note that "/path/to/your/hadoop" should be replaced with something like "/usr/local/hadoop-1.0.3")
 
 *conf/core-site.xml*
 [http://distmap.googlecode.com/files/core-site.xml]
@@ -201,7 +201,7 @@ ssh localhost
 }}}
 
 
-You will beed password to log in ssh.
+You will need a password to log in ssh.
 
 {{{
 ssh-keygen -t dsa -P '' -f ~/.ssh/id_dsa
@@ -214,12 +214,12 @@ Configuration done. Try:
 ssh localhost
 }}}
 
-You should now log in without password.
+You should now be able to log in without password.
 
 
 =3. SSH Access=
 
-master must have passphaseless log in authorities to all slaves.
+The master log in must have password-less log in authorities to all slaves.
 
 {{{
 cat ~/.ssh/id_rsa.pub | ssh cluster@macserver01-02 "cat - >> ~/.ssh/authorized_keys"
@@ -239,7 +239,7 @@ cluster@macserver01-01:~$ ssh macserver01-04
 cluster@macserver01-01:~$ ssh macserver01-05
 }}}
 
-You should now log in without password.
+You should now be able to log in without password.
 
 =4. First run=
 You should format the HDFS (Hadoop Distributed File System).
@@ -257,13 +257,13 @@ Run the following command on master:
 /usr/local/hadoop-1.0.3/bin/start-dfs.sh
 }}}
 
-Use the following command on every nodes to check the status of daemons:
+Use the following command on every node to check the status of daemons:
 
 {{{
 jps
 }}}
 
-run jps on master, you should see something like this:
+Run jps on master, you should see something like this:
 {{{
 8211 DataNode
 7803 NameNode
@@ -289,7 +289,7 @@ Use the following command on every nodes to check the status of daemons:
 jps
 }}}
 
-run jps on master, you should see something like this:
+Run jps on master, you should see something like this:
 {{{
 8211 DataNode
 7803 NameNode
@@ -307,7 +307,7 @@ run jps on slaves, you should see something like this:
 }}}
 
 =6. Hadoop Web Interfaces=
-There are some web interfaces that let you know what is going on with the running hadoop.
+There are some web interfaces that let you know hadoop progress while running the job.
 {{{
 http://localhost:50030/ – web UI for MapReduce job tracker(s)
 }}}
@@ -362,7 +362,7 @@ Run on master:
 
 
 =9 Configure Fair scheduler =
-Various pools can be created under Hadoop cluster to run multiple jobs in parellel.
+Various pools can be created under Hadoop cluster to run multiple jobs in parallel.
 Here we have a fair-scheduler implementation xml configuration file [http://distmap.googlecode.com/files/fair-scheduler.xml]
 
 
