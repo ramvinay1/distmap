@@ -5,7 +5,7 @@
 
 
 =1. Introduction=
-`DistMap` provides a scalable and portable framework to map short reads on a hadoop cluster. It is a complete pipeline especially designed for non-expers. Currently  `DistMap ` supports 8 mappers:
+`DistMap` provides a scalable and portable framework to map short reads on a Hadoop cluster. It is a complete pipeline especially designed for non-experts. Currently,  `DistMap ` supports 8 mappers:
 
 *BWA* (http://soap.genomics.org.cn/soapaligner.html)<br>
 *GSNAP* (http://soap.genomics.org.cn/soapaligner.html)<br>
@@ -16,7 +16,7 @@
 *Bismask* (http://www.bioinformatics.babraham.ac.uk/projects/bismark/)<br>
 *BSMAP* (http://code.google.com/p/bsmap/)<br>
 
- `DistMap' support paire-end and single-end read mapping in FASTQ file format. It returns the final output as a SAM or BAM file.
+ `DistMap' supports paired-end and single-end read mapping in FASTQ file format. It returns the final output as a SAM or BAM file.
 
 
 =2. System Requirements=
@@ -24,7 +24,7 @@
 
 =3. How to run `DistMap`?=
 
-Download source code of  `DistMap ` from http://distmap.googlecode.com/files/DistMap_v1.0.tar.gz and run following command on terminal to uncompressed the source code.
+Download source code of  `DistMap ` from http://distmap.googlecode.com/files/DistMap_v1.0.tar.gz and run following command on terminal to uncompress the source code.
 
 {{{
 tar -xzvf DistMap_v1.0.tar.gz
@@ -45,7 +45,7 @@ Usage: perl DistMap_v1.0/distmap
 
 --reference-fasta      		Reference fasta file full path. MANDATORY parameter.
   
---input                		provide input fasta files. Either as a pair or single Fastq file.
+--input                		provide input fastq files. Either as a pair or single Fastq file.
 				For Paired-end data --input 'read1.fastq,read2.fastq'
 				For Single-end data --input 'read.fastq'
 				Multiple inputs are possible to repeat --input parameter
@@ -53,44 +53,43 @@ Usage: perl DistMap_v1.0/distmap
 				--input 'sample1_1.fastq,sample1_2.fastq' --input 'sample2_1.fastq,sample2_2.fastq'
 				This is important to give single or a pair input file within
 				single or double quote and if paired file, it must be comma
-				seperated. MANDATORY parameter.
+				separated. MANDATORY parameter.
 					
 --output              		Full path of output folder where final output will be kept. MANDATORY parameter.
 
 --only-process    		Step1: This option will 1) convert FASTQ files into 1 line format, 2) create genome index
-			        and 3) create archieve to send for job and exit. OPTIONAL parameter
+			        and 3) create archive to send for job and exit. OPTIONAL parameter
 				
---only-hdfs-upload          	Step2: This option assume that data processing is done and only upload reads and archieve created in
+--only-hdfs-upload          	Step2: This option assume that data processing is done and only upload reads and archive created in
 				data process step will be loaded into HDFS file system and exit. OPTIONAL parameter
 
 --only-map            		Step3: This option will assume that data is already loaded into HDFS and will only
-				run map on cluster
+				run map on the cluster
 
---only-hdfs-download          	Step4: This option assume that mapping already done on cluster and files will be downloaded
-				from cluster to local output directory. OPTIONAL parameter
+--only-hdfs-download          	Step4: This option assume that mapping is already done on the cluster and files will be downloaded
+				from the cluster to a local output directory. OPTIONAL parameter
 				
---only-merge          		Step5: This option assume that data already in local directory from HDFS
-				and now will be merged and create a single SAM or BAM output file. OPTIONAL parameter
+--only-merge          		Step5: This option assume that data is already in the local directory from HDFS
+				and now will be merged to create a single SAM or BAM output file. OPTIONAL parameter
 
---only-delete-temp          	Step6: This is the last step of piepline. This option will delete the
+--only-delete-temp          	Step6: This is the last step of pipeline. This option will delete the
 				mapping data from HDFS file system as well as from local temp directory.
 				OPTIONAL parameter
 				
---hadoop-home         		Give the full path of hadoop folder. MANDATORY parameter.
-				hadoop home path should be identical in master, secondary namenode and
+--hadoop-home         		Gives the full path of the hadoop folder. MANDATORY parameter.
+				The hadoop home path should be identical in master, secondary namenode and
 				all slaves.
 				Example: --hadoop-home /usr/local/hadoop
 					
 --mapper              		Mapper name [bwa,tophat,gsnap,bowtie,soap]. MANDATORY parameter.
 				Example: --mapper bwa
 					
---mapper-path         		Mapper executable full path. Mapper executables should be in
-				same loaction on all nodes (slaves). MANDATORY parameter.
+--mapper-path         		Mapper executable full path. MANDATORY parameter.
 				Example: --mapper-path /usr/local/hadoop/bwa
---gsnap-output-split		GSNAP has a feature to split different type of maaping output in different
+--gsnap-output-split		GSNAP has a feature to split different types of mapping output into different
                                 SAM files.
 				
-				For detail do gsnap --help and you can see --split--output.
+				For detail input: gsnap --help, read --split--output.
 				  --split-output=STRING   Basename for multiple-file output, separately for nomapping,
                                    halfmapping_uniq, halfmapping_mult, unpaired_uniq, unpaired_mult,
                                    paired_uniq, paired_mult, concordant_uniq, and concordant_mult results (up to 9 files,
@@ -106,23 +105,23 @@ Usage: perl DistMap_v1.0/distmap
 --mapper-args        		Arguments for mapping:
 				BWA mapping for aln command:
 					Example --mapper-args "-o 1 -n 0.01 -l 200 -e 12 -d 12"
-					Note: Define BWA parameters correctly accoring to the version is used here.
+					Note: Define BWA parameters correctly according to the version used here.
 				TopHat:
 					Example: --mapper-args "--mate-inner-dist 200 --max-multihits 40 --phred64-quals"
-					Note: Define TopHat parameters correctly accoring to the version is used here.
+					Note: Define TopHat parameters correctly according to the version used here.
 				GSNAP mapping:
 					Example: --mapper-args "--pairexpect 200 --quality-protocol illumina"
-					Note: Define gsnap parameters correctly accoring to the version is used here.
+					Note: Define gsnap parameters correctly according to the version used here.
 					For detail about parameters visit [http://research-pub.gene.com/gmap/]
 				bowtie mapping:
 					Example: --mapper-args "--sam"
-					Note: Define gsnap parameters correctly accoring to the version is used here.
+					Note: Define gsnap parameters correctly according to the version used here.
 					For detail about parameters visit [http://bowtie-bio.sourceforge.net/index.shtml]
 				SOAPAlinger:
 					Example: --mapper-args "-m 400 -x 600"
-					Note: Define SOAPaligner parameters correctly accoring to the version is used here.
+					Note: Define SOAPaligner parameters correctly according to the version used here.
 					For detail about parameters visit [http://soap.genomics.org.cn/soapaligner.html]
-Please note that processor parameters not required in arguments. Example in case of BWA mapping dont give -t parameter.
+Please note that processor parameters not required in arguments. Example in the case of BWA mapping do not give -t parameter.
 This parameter is given by DistMap internally.
 
 --bwa-sampe-args      	Arguments for BWA sampe or samse module.
@@ -133,7 +132,7 @@ This parameter is given by DistMap internally.
 --output-format    		Output file format either SAM or BAM.
 				Default: BAM
 					
---job-desc    		Give a job description which will be dispalyed in JobTracker webpage.
+--job-desc    		Give a job description which will be displayed in JobTracker webpage.
 				Default: <mapper name> mapping.
 Hadoop streaming Parameters:
 
@@ -141,8 +140,8 @@ Hadoop streaming Parameters:
 				1) Fair Scheduler (need to configure. http://hadoop.apache.org/docs/stable/fair_scheduler.html)
 				2) FIFO (it is default comes with Hadoop)
 				3) Capacity Scheduler (need to configure. http://hadoop.apache.org/docs/stable/capacity_scheduler.html)
-				If your hadoop has Fair Scheduler then provide pool name with parameter --queue-name
-				If your hadoop has Capacity Scheduler then provide  queue name with parameter --queue-name.
+				If your hadoop has Fair Scheduler then provide a pool name with the parameter --queue-name
+				If your hadoop has Capacity Scheduler then provide  queue name with the parameter --queue-name.
 				Example: --hadoop-scheduler Fair
 					 --hadoop-scheduler Capacity
 					 --hadoop-scheduler FIFO
@@ -161,7 +160,7 @@ Hadoop streaming Parameters:
 }}}
 
 =4 BWA mapping =
-Burrows-Wheeler Aligner (BWA) is an efficient program that aligns relatively short nucleotide sequences against a long reference sequence such as the human. 
+Burrows-Wheeler Aligner (BWA) is an efficient program that aligns relatively short nucleotide sequences against a long reference sequence such as the available human reference sequence.
 
 *Step1:* Download latest BWA source code from http://sourceforge.net/projects/bio-bwa/files/
 
@@ -257,7 +256,7 @@ perl DistMap_v_1.0/distmap --mapper-path /home/user/gmap-2012-07-20/bin/gsnap
 Download TopHat binary from http://tophat.cbcb.umd.edu/downloads/tophat-2.0.6.OSX_x86_64.tar.gz for Macintosh or from http://tophat.cbcb.umd.edu/downloads/tophat-2.0.6.Linux_x86_64.tar.gz for Linux operating system.
 
 ==Get `Bowtie for TopHat` mapping==
-As `TopHat` uses bowtie for mapping internally therefore get Bowtie binaries from http://sourceforge.net/projects/bowtie-bio/files/bowtie/0.12.9/ and copy following bowtie executables from */home/user/bowtie-0.12.9* folder into */home/user/tophat-2.0.6* folder.
+As `TopHat` requires bowtie for mapping internally. Bowtie binaries can be found at http://sourceforge.net/projects/bowtie-bio/files/bowtie/0.12.9/ and copy following bowtie executables from */home/user/bowtie-0.12.9* folder into */home/user/tophat-2.0.6* folder.
 {{{
 cp /home/user/bowtie-0.12.9/bowtie /home/user/tophat-2.0.6/
 cp /home/user/bowtie-0.12.9/bowtie-build /home/user/tophat-2.0.6/
@@ -292,7 +291,7 @@ Give the full path for `DistMap` command parameter
 perl DistMap_v_1.0/distmap --mapper-path /home/user/tophat-2.0.6/tophat
 }}}
 
-*Note:* Since TopHat has been developed on Python 2.6 therefore all slaves should have Python 2.6. The reason for that is there is a python package called *getopt* which is called in */home/user/tophat-2.0.6/tophat*
+*Note:* Since TopHat was developed on Python 2.6, all slaves should have Python 2.6. This uses the python package called *getopt* which is called in */home/user/tophat-2.0.6/tophat*
 
 
 =7 Bowtie mapping =
@@ -345,7 +344,7 @@ perl DistMap_v_1.0/distmap --mapper-path /home/user/bowtie2-2.0.6/bowtie2
 =9 SOAP mapping =
 
 ==SOAPaligner/soap2 installation==
-SOAPaligner/soap2 is short read mapper which allows gapped and un-gapped mapping of short reads. 
+SOAPaligner/soap2 is a short read mapper that allows gapped and un-gapped mapping of short reads. 
 
 *Step1:* Download latest SOAPaligner/soap2 source code from http:// soap.genomics.org.cn/down/SOAPaligner-v2.20-src.tar.gz
 
@@ -364,10 +363,10 @@ This command will return the folder/directory *soap2.20*
 {{{
 	make
 }}}
-After running the make command an executable called soap will be created in */home/user/soap2.20* folder. 
+After running the make command, an executable called soap will be created in */home/user/soap2.20* folder. 
 
 ==SOAPaligner_builder installation==
-To run SOAPaligner, need to build index files for the reference genome, and then search reads against the formatted index files.
+Running SOAPaligner requires index files for the reference genome, reads can then be searched against the formatted index files.
 
 *Step1:* Download latest SOAPaligner_builder source code from http://soap.genomics.org.cn/down/SOAPaligner-v2.20-src_builder.tar.gz
 
@@ -380,7 +379,7 @@ tar –xzvf SOAPaligner-v2.20-src_builder.tar.gz
 
 This command will return the folder/directory *soap_builder*
 
-*Step3:* Enter into the uncompressed folder *soap_builder* with following command:
+*Step3:* Enter in the uncompressed folder *soap_builder* with following command:
 {{{
 	cd /home/user/soap_builder
 }}}
@@ -399,7 +398,7 @@ cp /home/user/soap_builder/2bwt-builder /home/user/soap2.20/
 
 
 ==soap2sam.pl installation:==
-This is a Perl script, which is required to convert soap output format into common SAM format.
+This Perl script is required to convert soap output format into common SAM format.
 
 *Step1:* Download latest soap2sam.pl source code from http:// soap.genomics.org.cn/down/soap2sam.tar.gz
 
@@ -461,7 +460,7 @@ cd bismark_v0.7.7
 }}}
 
 ==Get Bowtie for Bismark mapping==
-As Bismark uses bowtie for mapping internally therefore get Bowtie binaries from http://sourceforge.net/projects/bowtie-bio/files/bowtie/0.12.9/ and copy following bowtie executables from */home/user/bowtie-0.12.9* folder into */home/user/bismark_v0.7.7* folder.
+As Bismark uses bowtie for mapping internally. Bowtie can be downloaded from http://sourceforge.net/projects/bowtie-bio/files/bowtie/0.12.9/, copy following bowtie executables from */home/user/bowtie-0.12.9* folder into */home/user/bismark_v0.7.7* folder.
 {{{
 cp /home/user/bowtie-0.12.9/bowtie /home/user/bismark_v0.7.7/
 cp /home/user/bowtie-0.12.9/bowtie-build /home/user/bismark_v0.7.7/
@@ -520,7 +519,7 @@ sudo make
 sudo make install
 }}}
 
-The above four commands will build bsmap executable in “/usr/bin”
+The above four commands will build BSMAP executable in “/usr/bin”
 
 *Step5:* To check the BSMAP installations run this command:
 {{{
@@ -530,7 +529,7 @@ bsmap –h
 
 This command will return the detailed help manual for various BSMAP parameters if the installation was successful.
 
-*Note:* For more detailed information how to run BSMAP please read the bsmap-2.73/README.txt file.
+*Note:* For more detailed information how to run BSMAP, please read the bsmap-2.73/README.txt file.
 
 
 Give the full path for `DistMap` command parameter
