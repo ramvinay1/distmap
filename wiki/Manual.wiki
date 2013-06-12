@@ -18,6 +18,19 @@
 
  `DistMap' supports paired-end and single-end read mapping in FASTQ file format. It returns the final output as a SAM or BAM file.
 
+==DistMap components==
+The DistMap workflow consists of seven main modules which can be executed either end-to-end by a single command, or each module can be executed by giving appropriate command line flags. The whole pipeline is summarized in Figure 1.
+
+===Module1: Genome indexing:=== The first module of DistMap creates genome indices and uploads these into the HDFS file system. Genome indices from previous DistMap runs are maintained as *tgz files such that the user can re-use these via the option –reference-index-archive on the DistMap command line. The user can execute Genome indexing as a stand-alone module by giving the flag –only-index in the DistMap command line.
+Module2: Data processing: The second module of DistMap takes all input parameters, FASTQ formatted reads and mapper executables from the local computer and creates a final archive. This archive is then uploaded to the cluster. The user can execute Data processing as a stand-alone module by giving the flag –only-process in the DistMap command line.
+Module3: Data upload: This module loads the processed reads and the archive created in module 1 into the HDFS file system. The user can execute Data upload as a stand-alone module by giving the flag –only-hdfs-upload in the DistMap command line.
+Module4: Data mapping: This module facilitates the mapping of the reads to the reference genome. The user can execute Data mapping as a stand-alone module by giving the flag –only-map in the DistMap command line.
+Module5: Data download: This module implements data transfer from the HDFS on the local computer after the completion of mapping. The user can execute Data download as a stand-alone module by giving the flag –only-hdfs-download in the DistMap command line.
+Module6: Post processing output: This module results in the combination of all outputs into a single SAM or BAM file in the local output directory. The user can execute Post processing output as a stand-alone module by giving the flag –only-merge in the DistMap command line.
+Module7: Data cleanup: The final module deletes all intermediate input and output files stored within the HDFS and on the local computer. This module is optional and it can be executed as a stand alone module with the flag –only-delete-temp in the DistMap command line.
+
+
+
 
 =2. System Requirements=
 `DistMap` is implemented in Perl and runs on all Unix operating systems. It requires Perl 5.8 or higher, `MergeSamFiles.jar` and `SortSam.jar` from PICARD (http://picard.sourceforge.net).
