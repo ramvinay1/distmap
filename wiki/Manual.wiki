@@ -72,40 +72,40 @@ Usage: perl DistMap_v1.0/distmap
 
 --reference-fasta      		Reference fasta file full path. MANDATORY parameter.
   
---input                		provide input fastq files. Either as a pair or single Fastq file.
+--input                		Provide input fastq files, either as a pair or single Fastq file.
 				For Paired-end data --input 'read1.fastq,read2.fastq'
 				For Single-end data --input 'read.fastq'
-				Multiple inputs are possible to repeat --input parameter
+				Multiple inputs are possible by repeating --input parameter
 					
 				--input 'sample1_1.fastq,sample1_2.fastq' --input 'sample2_1.fastq,sample2_2.fastq'
-				This is important to give single or a pair input file within
-				single or double quote and if paired file, it must be comma
+				It is necessary to give input file(s) within
+				single or double quotes. Paired files must be comma
 				separated. MANDATORY parameter.
 					
 --output              		Full path of output folder where final output will be kept. MANDATORY parameter.
 
---only-process    		Step1: This option will 1) convert FASTQ files into 1 line format, 2) create genome index
-			        and 3) create archive to send for job and exit. OPTIONAL parameter
+--only-process    		Step1: This option will 1) convert FASTQ files into 1 line format, 2) create a genome index
+			        and 3) create a job archive and exit. OPTIONAL parameter
 				
---only-hdfs-upload          	Step2: This option assume that data processing is done and only upload reads and archive created in
-				data process step will be loaded into HDFS file system and exit. OPTIONAL parameter
+--only-hdfs-upload          	Step2: This option assumes that the data processing is complete. It uploads the reads and the archive created in the
+				data process step into HDFS file system. OPTIONAL parameter
 
---only-map            		Step3: This option will assume that data is already loaded into HDFS and will only
-				run map on the cluster
+--only-map            		Step3: This option assumes that data is already loaded into the HDFS and will
+				run map on the cluster.
 
---only-hdfs-download          	Step4: This option assume that mapping is already done on the cluster and files will be downloaded
+--only-hdfs-download          	Step4: This option assumes that mapping has been completed on the cluster. Files will be downloaded
 				from the cluster to a local output directory. OPTIONAL parameter
 				
---only-merge          		Step5: This option assume that data is already in the local directory from HDFS
-				and now will be merged to create a single SAM or BAM output file. OPTIONAL parameter
+--only-merge          		Step5: This option assumes that the data is already in the local directory.
+				Data will be merged to create a single SAM or BAM output file. OPTIONAL parameter
 
---only-delete-temp          	Step6: This is the last step of pipeline. This option will delete the
-				mapping data from HDFS file system as well as from local temp directory.
+--only-delete-temp          	Step6: This is the last step of the pipeline. This option deletes the
+				mapping data from HDFS file system as well as from local temp directory. Useful to clean up after large mapping jobs!
 				OPTIONAL parameter
 				
 --hadoop-home         		Gives the full path of the hadoop folder. MANDATORY parameter.
 				The hadoop home path should be identical in master, secondary namenode and
-				all slaves.
+				all slaves (nodes).
 				Example: --hadoop-home /usr/local/hadoop
 					
 --mapper              		Mapper name [bwa,tophat,gsnap,bowtie,soap]. MANDATORY parameter.
@@ -126,7 +126,7 @@ Usage: perl DistMap_v1.0/distmap
 				SAM or BAM files. MANDATORY parameter.
 				Example: --picard-mergesamfiles-jar /usr/local/hadoop/picard-tools-1.56/MergeSamFiles.jar
 				
---picard-sortsam-jar     	PICARD SortSam.jar full path. It will be used to for SAM BAM conversion. MANDATORY parameter.
+--picard-sortsam-jar     	PICARD SortSam.jar full path. It will be used for SAM BAM conversion. MANDATORY parameter.
 				Example: --picard-sortsam-jar /usr/local/hadoop/picard-tools-1.56/SortSam.jar
 				
 --mapper-args        		Arguments for mapping:
@@ -148,7 +148,7 @@ Usage: perl DistMap_v1.0/distmap
 					Example: --mapper-args "-m 400 -x 600"
 					Note: Define SOAPaligner parameters correctly according to the version used here.
 					For detail about parameters visit [http://soap.genomics.org.cn/soapaligner.html]
-Please note that processor parameters not required in arguments. Example in the case of BWA mapping do not give -t parameter.
+Please note that processor parameters are not required in arguments. For example BWA mapping does not require -t parameter.
 This parameter is given by DistMap internally.
 
 --bwa-sampe-args      	Arguments for BWA sampe or samse module.
@@ -179,9 +179,7 @@ Hadoop streaming Parameters:
 				Possible options: [ VERY_LOW | LOW | NORMAL | HIGH | VERY_HIGH ]
 				Example: --job-priority VERY_HIGH
 				
---verbose                 	To print inputs on screen.  
---test                 	To run a test for all dependency and all.
---help                	To run a test for all dependency and all.
+--verbose/--help                 	Print inputs on screen.  
 
 
 }}}
