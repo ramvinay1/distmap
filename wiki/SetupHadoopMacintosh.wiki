@@ -129,7 +129,7 @@ export JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Versions/1.6.0/
 Save & exit.
 
 
-===2) Creates some directories in hadoop home:===
+===2) Create some directories in hadoop home:===
 {{{
 cd /usr/local/hadoop-1.0.3
 mkdir tmp
@@ -214,7 +214,7 @@ Configuration done. Try:
 ssh localhost
 }}}
 
-You should now be able to log in without password.
+You should now be able to log in without a password.
 
 
 =3. SSH Access=
@@ -239,7 +239,7 @@ cluster@macserver01-01:~$ ssh macserver01-04
 cluster@macserver01-01:~$ ssh macserver01-05
 }}}
 
-You should now be able to log in without password.
+You should now be able to log in without a password.
 
 =4. First run=
 You should format the HDFS (Hadoop Distributed File System).
@@ -271,7 +271,7 @@ Run jps on master, you should see something like this:
 8354 SecondaryNameNode
 }}}
 
-run jps on slaves, you should see something like this:
+run jps on the slaves, you should see something like this:
 
 {{{
 8211 DataNode
@@ -299,7 +299,7 @@ Run jps on master, you should see something like this:
 8354 SecondaryNameNode
 }}}
 
-run jps on slaves, you should see something like this:
+run jps on the slaves, you should see something like this:
 {{{
 8211 DataNode
 8547 TaskTracker
