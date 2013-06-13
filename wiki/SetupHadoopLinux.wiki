@@ -7,9 +7,9 @@
 
 =Create common group and user account=
 Before starting the hadoop setup it is important to create a common user account and a group on all computers.
-Create the group hadoop and user cluster:
+Create the group _hadoop_ and user _cluster_:
 
-*Step1:* Log in as user root.
+*Step1:* Log in as root.
 
 *Step2:* Create the group hadoop using the _groupadd_ utility followed by the name of the group, in this format:
     {{{
@@ -59,7 +59,7 @@ Here we provide a practical guide and following configuration files to setup a H
 ==Edit /etc/hosts on every node==
 
 If you have, for example, the following nodes:<br><br>
-(remember to replace the hostname according to your machine. eg.ubuntu01-01,ubuntu01-02)
+(remember to replace the hostname according to your machine; eg. ubuntu01-01, ubuntu01-02)
 
 *master:*
 {{{
@@ -103,7 +103,7 @@ ubuntu01-04
 ubuntu01-05
 }}}
 
-==For every node do the follwoings:==
+==For every node do the following:==
 
 ===1) Configure JAVA_HOME===
 {{{
@@ -129,7 +129,7 @@ export JAVA_HOME=/usr/lib/jvm/java/jdk1.6.0_22
 Save & exit.
 
 
-===2) Creates some directories in hadoop home:===
+===2) Create some directories in hadoop home:===
 {{{
 cd /usr/local/hadoop-1.0.3
 mkdir tmp
@@ -258,7 +258,7 @@ Run jps on master, you should see something like this:
 8354 SecondaryNameNode
 }}}
 
-Run jps on slaves, you should see something like this:
+Run jps on the slaves, you should see something like this:
 
 {{{
 8211 DataNode
@@ -286,7 +286,7 @@ Run jps on master, you should see something like this:
 8354 SecondaryNameNode
 }}}
 
-run jps on slaves, you should see something like this:
+run jps on the slaves, you should see something like this:
 {{{
 8211 DataNode
 8547 TaskTracker
