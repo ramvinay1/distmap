@@ -23,7 +23,7 @@ The DistMap workflow consists of seven main modules which can be executed either
 
 
 ===Module1: Genome indexing:===
-The first module of DistMap creates genome indices and uploads these into the HDFS file system. Genome indices from previous DistMap runs are maintained as *tgz files such that the user can re-use these via the option –reference-index-archive on the DistMap command line. The user can execute _Genome indexing_ as a stand-alone module by giving the flag –only-index in the DistMap command line.<br>
+The first module of DistMap creates genome indices and uploads these into the HDFS file system. Genome indices from previous DistMap runs are maintained as *tgz* files such that the user can re-use these via the option –reference-index-archive on the DistMap command line. The user can execute _Genome indexing_ as a stand-alone module by giving the flag –only-index in the DistMap command line.<br>
 
 ===Module2: Data processing:===
 The second module of DistMap takes all input parameters, FASTQ formatted reads and mapper executables from the local computer and creates a final archive. This archive is then uploaded to the cluster. The user can execute _Data processing_ as a stand-alone module by giving the flag –only-process in the DistMap command line.<br>
