@@ -17,7 +17,7 @@
 *Bismask* (http://www.bioinformatics.babraham.ac.uk/projects/bismark/)<br>
 *BSMAP* (http://code.google.com/p/bsmap/)<br>
 
- `DistMap' supports paired-end and single-end read mapping in FASTQ file format. It returns the final output as a SAM or BAM file.
+`DistMap` supports paired-end and single-end read mapping in FASTQ file format. It returns the final output as a SAM or BAM file.
 
 ==`DistMap` components==
 The `DistMap` workflow consists of seven main modules which can be executed either end-to-end by a single command, or each module can be executed by giving appropriate command line flags..<br><br>
