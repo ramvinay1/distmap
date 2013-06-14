@@ -5,12 +5,13 @@
 
 
 =1. Introduction=
-`DistMap` provides a scalable and portable framework to map short reads on a Hadoop cluster. It is a complete pipeline especially designed for non-experts. Currently,  `DistMap ` supports 8 mappers:
+`DistMap` provides a scalable and portable framework to map short reads on a Hadoop cluster. It is a complete pipeline especially designed for non-experts. Currently,  `DistMap ` supports 9 mappers:
 
 *BWA* (http://soap.genomics.org.cn/soapaligner.html)<br>
 *GSNAP* (http://soap.genomics.org.cn/soapaligner.html)<br>
 *`TopHat`* (http://tophat.cbcb.umd.edu/)<br>
 *Bowtie* (http://bowtie-bio.sourceforge.net/index.shtml)<br>
+*Bowtie2* (http://sourceforge.net/projects/bowtie-bio/files/bowtie2/2.0.6/)<br>
 *SOAP* (http://soap.genomics.org.cn/soapaligner.html)<br>
 *STAR* (http://gingeraslab.cshl.edu/STAR/)<br>
 *Bismask* (http://www.bioinformatics.babraham.ac.uk/projects/bismark/)<br>
