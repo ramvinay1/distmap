@@ -35,7 +35,7 @@ This module loads the processed reads and the archive created in module 1 into t
 This module facilitates the mapping of the reads to the reference genome. The user can execute _Data mapping_ as a stand-alone module by giving the flag –only-map in the `DistMap` command line.<br>
 
 ===Module5: Data download:===
-This module implements data transfer from the HDFS on the local computer after the completion of mapping. The user can execute _Data download_ as a stand-alone module by giving the flag –only-hdfs-download in the DistMap command line.<br>
+This module implements data transfer from the HDFS on the local computer after the completion of mapping. The user can execute _Data download_ as a stand-alone module by giving the flag –only-hdfs-download in the `DistMap` command line.<br>
 
 ===Module6: Post processing output:===
 This module results in the combination of all outputs into a single SAM or BAM file in the local output directory. The user can execute _Post processing_ output as a stand-alone module by giving the flag –only-merge in the `DistMap` command line.<br>
